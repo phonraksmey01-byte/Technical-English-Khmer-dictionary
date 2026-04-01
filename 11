@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical English–Khmer Dictionary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Noto+Serif+Khmer:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#060e1f;--navy2:#0d1b35;--navy3:#152347;
+  --border:#1e3060;--orange:#ff6b35;--orange2:#ff8c5a;
+  --cyan:#00d4ff;--cyan2:#7ee8fa;--green:#00e676;
+  --red:#ff4560;--yellow:#ffd600;--white:#f0f4ff;
+  --muted:#6b80a8;--card:#0d1b35;
+  --radius:14px;--radius-sm:8px;--shadow:0 8px 32px rgba(0,0,0,.5);
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden}
+.khmer{font-family:'Noto Serif Khmer',serif}
+.mono{font-family:'IBM Plex Mono',monospace}
+body::before{content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(0,212,255,.07) 0%,transparent 60%),
+             radial-gradient(ellipse 60% 40% at 80% 80%,rgba(255,107,53,.07) 0%,transparent 60%);
+  pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,212,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,212,255,.03) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;z-index:0}
+ 
+/* ── HEADER ── */
+header{position:sticky;top:0;z-index:100;background:rgba(6,14,31,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);padding:0 24px}
+.header-inner{max-width:1200px;margin:0 auto;height:64px;display:flex;align-items:center;gap:16px}
+.logo{width:38px;height:38px;background:linear-gradient(135deg,var(--orange),var(--cyan));
+  border-radius:10px;display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.site-title{font-size:17px;font-weight:700;letter-spacing:-.3px}
+.site-subtitle{font-size:11px;color:var(--muted);margin-top:1px}
+.header-right{margin-left:auto;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.header-badge{background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.25);
+  color:var(--cyan);font-size:11px;padding:4px 12px;border-radius:20px;white-space:nowrap}
+.header-about-btn{background:none;border:1px solid var(--border);color:var(--muted);
+  font-size:12px;font-weight:600;padding:6px 14px;border-radius:20px;cursor:pointer;
+  font-family:'Outfit',sans-serif;transition:all .2s;white-space:nowrap}
+.header-about-btn:hover{border-color:var(--orange);color:var(--orange)}
+ 
+/* ── MAIN ── */
+.page{position:relative;z-index:1}
+#home-page,#group-page{max-width:1200px;margin:0 auto;padding:40px 24px}
+ 
+/* ── HERO ── */
+.hero{text-align:center;padding:48px 0 48px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,53,.12);
+  border:1px solid rgba(255,107,53,.3);color:var(--orange);font-size:12px;font-weight:600;
+  letter-spacing:.8px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-size:clamp(30px,5.5vw,58px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--cyan),var(--orange));-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:16px;color:var(--muted);max-width:520px;margin:0 auto 32px;line-height:1.7}
+.stats-row{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-size:32px;font-weight:800;font-family:'IBM Plex Mono',monospace;
+  background:linear-gradient(135deg,var(--cyan),var(--cyan2));-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.stat-l{font-size:12px;color:var(--muted);margin-top:2px}
+ 
+/* ── OWNERSHIP CARD ── */
+.ownership-section{margin-bottom:36px}
+.own-card{
+  background:linear-gradient(135deg,rgba(13,27,53,.9) 0%,rgba(21,35,71,.7) 100%);
+  border:1px solid var(--border);border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow),0 0 0 1px rgba(0,212,255,.04);
+  position:relative;
+}
+.own-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--orange),var(--cyan),var(--yellow));
+}
+.own-card-inner{display:grid;grid-template-columns:auto 1fr;gap:0;align-items:stretch}
+@media(max-width:640px){.own-card-inner{grid-template-columns:1fr}}
+ 
+.own-left{
+  padding:28px 28px 28px 32px;
+  display:flex;align-items:center;gap:22px;
+  border-right:1px solid var(--border);
+  background:rgba(6,14,31,.3);
+}
+@media(max-width:640px){.own-left{border-right:none;border-bottom:1px solid var(--border);padding:24px;}}
+ 
+.own-photo-ring{
+  width:80px;height:80px;border-radius:50%;padding:2.5px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--orange),var(--cyan));
+  box-shadow:0 0 20px rgba(0,212,255,.2);
+}
+.own-photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top center;display:block}
+ 
+.own-name-block{min-width:0}
+.own-owner-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:5px}
+.own-name{font-size:18px;font-weight:800;letter-spacing:-.4px;white-space:nowrap}
+.own-role{font-size:12px;color:var(--orange2);font-weight:600;margin-top:3px}
+ 
+.own-right{
+  padding:22px 28px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  align-content:center;
+}
+@media(max-width:500px){.own-right{grid-template-columns:1fr}}
+ 
+.own-item{display:flex;gap:10px;align-items:flex-start}
+.own-icon{
+  width:32px;height:32px;border-radius:8px;
+  display:grid;place-items:center;font-size:14px;flex-shrink:0;
+  border:1px solid var(--border);
+}
+.oi-eng{background:rgba(0,212,255,.1);border-color:rgba(0,212,255,.25)}
+.oi-lang{background:rgba(255,214,0,.1);border-color:rgba(255,214,0,.25)}
+.oi-intl{background:rgba(255,107,53,.1);border-color:rgba(255,107,53,.25)}
+.oi-work{background:rgba(0,230,118,.1);border-color:rgba(0,230,118,.25)}
+.own-item-text{}
+.own-item-title{font-size:12px;font-weight:600;line-height:1.4;color:var(--white)}
+.own-item-detail{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+ 
+.own-footer{
+  padding:10px 32px;
+  background:rgba(6,14,31,.4);
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.own-footer-dot{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--cyan));flex-shrink:0}
+.own-footer-text{font-size:11px;color:var(--muted)}
+.own-copyright{margin-left:auto;font-size:11px;color:var(--muted2);font-family:'IBM Plex Mono',monospace}
+ 
+/* ── OVERALL PROGRESS ── */
+.overall-progress{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.op-label{font-size:13px;font-weight:600;white-space:nowrap}
+.op-bar-wrap{flex:1;min-width:120px;height:7px;background:var(--border);border-radius:4px;overflow:hidden}
+.op-bar{height:100%;background:linear-gradient(90deg,var(--orange),var(--cyan));border-radius:4px;transition:width .6s}
+.op-text{font-size:12px;color:var(--muted);white-space:nowrap;font-family:'IBM Plex Mono',monospace}
+ 
+/* ── GROUPS GRID ── */
+.section-label{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.group-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
+.group-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--orange),var(--cyan));transform:scaleX(0);
+  transform-origin:left;transition:transform .3s}
+.group-card:hover{border-color:rgba(0,212,255,.4);transform:translateY(-3px);box-shadow:var(--shadow)}
+.group-card:hover::before{transform:scaleX(1)}
+.group-card.completed{border-color:rgba(0,230,118,.3)}
+.group-card.completed::before{transform:scaleX(1);background:var(--green)}
+.group-num{font-size:11px;font-weight:600;letter-spacing:.8px;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.group-name{font-size:15px;font-weight:600;line-height:1.4;margin-bottom:14px}
+.group-footer{display:flex;align-items:center;gap:8px}
+.term-count{font-size:12px;color:var(--muted)}
+.level-dots{display:flex;gap:5px;margin-left:auto}
+.level-dot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);
+  display:grid;place-items:center;font-size:9px;font-weight:700;color:var(--muted);transition:all .3s}
+.level-dot.done-A{background:rgba(0,212,255,.2);border-color:var(--cyan);color:var(--cyan)}
+.level-dot.done-B{background:rgba(255,107,53,.2);border-color:var(--orange);color:var(--orange)}
+.level-dot.done-C{background:rgba(255,214,0,.2);border-color:var(--yellow);color:var(--yellow)}
+ 
+/* ── GROUP PAGE ── */
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;
+  cursor:pointer;margin-bottom:28px;padding:8px 0;transition:color .2s;background:none;border:none}
+.back-btn:hover{color:var(--white)}
+.group-header{margin-bottom:28px}
+.group-header h2{font-size:clamp(22px,4vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:6px}
+.group-header p{color:var(--muted);font-size:14px}
+ 
+/* ── LEVEL TABS ── */
+.level-tabs{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap}
+.level-tab{display:flex;align-items:center;gap:10px;padding:14px 20px;border-radius:var(--radius);
+  border:1px solid var(--border);background:var(--card);cursor:pointer;transition:all .2s;flex:1;min-width:130px}
+.level-tab.active-A{border-color:var(--cyan);background:rgba(0,212,255,.1)}
+.level-tab.active-B{border-color:var(--orange);background:rgba(255,107,53,.1)}
+.level-tab.active-C{border-color:var(--yellow);background:rgba(255,214,0,.1)}
+.level-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  font-size:16px;font-weight:700;flex-shrink:0;position:relative}
+.icon-A{background:rgba(0,212,255,.2);color:var(--cyan)}
+.icon-B{background:rgba(255,107,53,.2);color:var(--orange)}
+.icon-C{background:rgba(255,214,0,.2);color:var(--yellow)}
+.level-info{text-align:left}
+.level-name{font-size:14px;font-weight:700}
+.level-desc{font-size:11px;color:var(--muted);margin-top:2px}
+.done-pill{display:inline-block;background:rgba(0,230,118,.15);border:1px solid rgba(0,230,118,.3);
+  color:var(--green);font-size:10px;padding:2px 8px;border-radius:10px;margin-top:4px}
+ 
+/* ── LEVEL CONTENT ── */
+.level-content{display:none;animation:fadeUp .3s ease}
+.level-content.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+ 
+/* ── FLASHCARD ── */
+.flashcard-nav{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.fc-progress{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.fc-progress-bar{height:100%;background:linear-gradient(90deg,var(--cyan),var(--cyan2));border-radius:3px;transition:width .4s}
+.fc-counter{font-size:13px;color:var(--muted);white-space:nowrap;font-family:'IBM Plex Mono',monospace}
+.flashcard{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.fc-top{padding:28px 28px 22px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.fc-img-wrap{width:200px;height:150px;border-radius:12px;overflow:hidden;flex-shrink:0;
+  background:var(--navy3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.fc-img-wrap img{width:100%;height:100%;object-fit:cover}
+.fc-img-placeholder{font-size:42px}
+.fc-main{flex:1;min-width:200px}
+.fc-term{font-size:clamp(24px,4vw,40px);font-weight:800;letter-spacing:-1px;font-family:'IBM Plex Mono',monospace;color:var(--white);margin-bottom:6px}
+.fc-khmer{font-size:20px;color:var(--cyan2);margin-bottom:14px;line-height:1.5}
+.speak-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.12);
+  border:1px solid rgba(0,212,255,.3);color:var(--cyan);font-size:13px;font-weight:600;
+  padding:8px 18px;border-radius:20px;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif}
+.speak-btn:hover{background:rgba(0,212,255,.22)}
+.speak-btn.speaking{animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.fc-divider{height:1px;background:var(--border);margin:0 28px}
+.fc-bottom{padding:22px 28px 28px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:600px){.fc-bottom{grid-template-columns:1fr}.fc-top{flex-direction:column}.fc-img-wrap{width:100%;height:180px}}
+.fc-section-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.fc-text{font-size:14px;line-height:1.75;color:#c8d4f0}
+.fc-controls{display:flex;align-items:center;justify-content:space-between;margin-top:20px;flex-wrap:wrap;gap:12px}
+.nav-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:var(--radius-sm);
+  font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;border:none;font-family:'Outfit',sans-serif}
+.nav-btn.prev{background:var(--navy3);color:var(--muted);border:1px solid var(--border)}
+.nav-btn.prev:hover{color:var(--white);border-color:var(--white)}
+.nav-btn.next{background:linear-gradient(135deg,var(--cyan),#0099cc);color:#000;font-weight:700}
+.nav-btn.next:hover{transform:translateX(3px)}
+.nav-btn:disabled{opacity:.3;cursor:not-allowed;transform:none!important}
+.all-done-banner{background:rgba(0,230,118,.1);border:1px solid rgba(0,230,118,.3);
+  border-radius:var(--radius-sm);padding:10px 18px;font-size:13px;color:var(--green);font-weight:600}
+ 
+/* ── QUIZ ── */
+.quiz-wrap{max-width:700px;margin:0 auto}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:18px}
+.quiz-q-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.lbl-B{color:var(--orange)}.lbl-C{color:var(--yellow)}
+.quiz-big-term{font-size:clamp(22px,4vw,34px);font-weight:800;font-family:'IBM Plex Mono',monospace;margin-bottom:10px}
+.quiz-img{width:100%;max-height:200px;object-fit:cover;border-radius:10px;margin-top:12px;border:1px solid var(--border);background:var(--navy3)}
+.quiz-def{font-size:15px;line-height:1.75;color:#c8d4f0}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+@media(max-width:540px){.quiz-options{grid-template-columns:1fr}}
+.opt{border-radius:var(--radius-sm);padding:14px 16px;text-align:left;cursor:pointer;transition:all .2s;width:100%;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;color:var(--white)}
+.opt-khmer{background:var(--navy3);border:1.5px solid var(--border);font-family:'Noto Serif Khmer',serif;font-size:15px}
+.opt-eng{background:var(--navy3);border:1.5px solid var(--border);font-family:'IBM Plex Mono',monospace;font-weight:600}
+.opt:hover:not(:disabled){transform:translateY(-1px)}
+.opt-khmer:hover:not(:disabled){border-color:var(--orange);background:rgba(255,107,53,.08)}
+.opt-eng:hover:not(:disabled){border-color:var(--yellow);background:rgba(255,214,0,.08)}
+.opt.correct{border-color:var(--green)!important;background:rgba(0,230,118,.12)!important;color:var(--green)!important}
+.opt.wrong{border-color:var(--red)!important;background:rgba(255,69,96,.12)!important;color:var(--red)!important}
+.opt:disabled{cursor:not-allowed}
+.quiz-feedback{margin-top:12px;font-size:14px;min-height:22px;font-weight:600}
+.fb-ok{color:var(--green)}.fb-bad{color:var(--red)}
+.quiz-nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:18px;flex-wrap:wrap;gap:12px}
+.q-counter{font-size:13px;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+ 
+/* ── SCORE ── */
+.score-screen{text-align:center;padding:48px 24px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius)}
+.score-ring{width:130px;height:130px;margin:0 auto 24px;position:relative}
+.score-ring svg{transform:rotate(-90deg)}
+.score-ring-text{position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:800;font-family:'IBM Plex Mono',monospace}
+.score-title{font-size:24px;font-weight:800;margin-bottom:8px}
+.score-msg{font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.score-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.retry-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--orange),var(--orange2));
+  color:white;font-size:14px;font-weight:700;padding:12px 26px;border-radius:var(--radius-sm);
+  cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:transform .2s}
+.retry-btn:hover{transform:scale(1.04)}
+.next-group-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.12);
+  border:1px solid rgba(0,212,255,.3);color:var(--cyan);font-size:14px;font-weight:700;
+  padding:12px 26px;border-radius:var(--radius-sm);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+.next-group-btn:hover{background:rgba(0,212,255,.22)}
+ 
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);
+  background:rgba(6,14,31,.7);
+  padding:28px 24px;
+  margin-top:60px;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.footer-photo-ring{
+  width:44px;height:44px;border-radius:50%;padding:2px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--orange),var(--cyan));
+}
+.footer-photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top center;display:block}
+.footer-info{flex:1;min-width:200px}
+.footer-name{font-size:14px;font-weight:700}
+.footer-role{font-size:11px;color:var(--muted);margin-top:2px}
+.footer-copy{font-size:11px;color:var(--muted2);font-family:'IBM Plex Mono',monospace;margin-left:auto}
+ 
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+ 
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-inner">
+    <div class="logo">🔧</div>
+    <div>
+      <div class="site-title">Technical English–Khmer Dictionary</div>
+      <div class="site-subtitle">Automotive Terminology · 1st-Year College Level</div>
+    </div>
+    <div class="header-right">
+      <span style="font-size:11px;color:var(--muted)" id="hdr-progress"></span>
+      <div class="header-badge">13 Groups · 130 Terms</div>
+    </div>
+  </div>
+</header>
+ 
+<div class="page">
+ 
+<!-- ══ HOME ══ -->
+<div id="home-page">
+  <div class="hero">
+    <div class="hero-eyebrow">🎓 Autobody Repair Program</div>
+    <h1>Master the <span>Technical Vocabulary</span><br>of Automotive Work</h1>
+    <p class="hero-sub">Learn automotive technical words, understand their Khmer translations, listen to pronunciation, and test yourself through 3 levels per group.</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-n">13</div><div class="stat-l">Groups</div></div>
+      <div class="stat"><div class="stat-n">130</div><div class="stat-l">Terms</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Levels Each</div></div>
+    </div>
+  </div>
+ 
+  <!-- ══ OWNERSHIP CARD ══ -->
+  <div class="ownership-section">
+    <div class="section-label">About the Instructor</div>
+    <div class="own-card">
+      <div class="own-card-inner">
+ 
+        <!-- photo + name -->
+        <div class="own-left">
+          <div class="own-photo-ring">
+            <img src="data:image/png;base64,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" alt="Lecturer Photo">
+          </div>
+          <div class="own-name-block">
+            <div class="own-owner-label">Course Owner &amp; Creator</div>
+            <div class="own-name">Autobody Lecturer</div>
+            <div class="own-role">🔧 ITI &nbsp;·&nbsp; ACEC</div>
+          </div>
+        </div>
+ 
+        <!-- credentials grid -->
+        <div class="own-right">
+          <div class="own-item">
+            <div class="own-icon oi-eng">🎓</div>
+            <div class="own-item-text">
+              <div class="own-item-title">Engineer's Degree</div>
+              <div class="own-item-detail">Industrial &amp; Mechanical Engineering<br>Institute of Technology of Cambodia</div>
+            </div>
+          </div>
+          <div class="own-item">
+            <div class="own-icon oi-lang">📖</div>
+            <div class="own-item-text">
+              <div class="own-item-title">Diploma — English (ESL)</div>
+              <div class="own-item-detail">General English as a Second Language<br>Pannasastra University of Cambodia</div>
+            </div>
+          </div>
+          <div class="own-item">
+            <div class="own-icon oi-intl">✈️</div>
+            <div class="own-item-text">
+              <div class="own-item-title">International Training 🇯🇵</div>
+              <div class="own-item-detail">Painting &amp; Bodywork Program<br>Honda Car Hakata, Fukuoka, Japan</div>
+            </div>
+          </div>
+          <div class="own-item">
+            <div class="own-icon oi-work">💼</div>
+            <div class="own-item-text">
+              <div class="own-item-title">Lecturer — Autobody Repair</div>
+              <div class="own-item-detail">Institute of Technology &amp; Innovation (ITI)<br>ACEC — Autobody Repair workshop</div>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+      <div class="own-footer">
+        <div class="own-footer-dot"></div>
+        <div class="own-footer-text">This dictionary was created for 1st-year college students studying Autobody Repair</div>
+        <div class="own-copyright">© 2025 All rights reserved</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ══ PROGRESS ══ -->
+  <div class="overall-progress">
+    <span class="op-label">Your Progress</span>
+    <div class="op-bar-wrap"><div class="op-bar" id="op-bar" style="width:0%"></div></div>
+    <span class="op-text" id="op-text">0 / 39 completed</span>
+  </div>
+ 
+  <div class="section-label">Choose a Group to Study</div>
+  <div class="groups-grid" id="groups-grid"></div>
+</div>
+ 
+<!-- ══ GROUP PAGE ══ -->
+<div id="group-page" class="hidden">
+  <button class="back-btn" onclick="showHome()">← Back to Groups</button>
+  <div class="group-header">
+    <h2 id="gp-title"></h2>
+    <p id="gp-sub"></p>
+  </div>
+  <div class="level-tabs">
+    <div class="level-tab" id="tab-A" onclick="setLevel('A')">
+      <div class="level-icon icon-A">A</div>
+      <div class="level-info"><div class="level-name">Level A</div><div class="level-desc">Learn the terms</div><div id="tab-A-done" class="done-pill hidden">✓ Done</div></div>
+    </div>
+    <div class="level-tab" id="tab-B" onclick="setLevel('B')">
+      <div class="level-icon icon-B">B</div>
+      <div class="level-info"><div class="level-name">Level B</div><div class="level-desc">Translation Refresh</div><div id="tab-B-done" class="done-pill hidden">✓ Done</div></div>
+    </div>
+    <div class="level-tab" id="tab-C" onclick="setLevel('C')">
+      <div class="level-icon icon-C">C</div>
+      <div class="level-info"><div class="level-name">Level C</div><div class="level-desc">Terminology Quiz</div><div id="tab-C-done" class="done-pill hidden">✓ Done</div></div>
+    </div>
+  </div>
+  <div class="level-content" id="level-A">
+    <div class="flashcard-nav">
+      <div class="fc-progress"><div class="fc-progress-bar" id="fc-bar"></div></div>
+      <div class="fc-counter" id="fc-counter">1 / 10</div>
+    </div>
+    <div class="flashcard" id="flashcard-box"></div>
+    <div class="fc-controls">
+      <button class="nav-btn prev" id="btn-prev" onclick="fcNav(-1)">← Previous</button>
+      <div id="fc-done-banner" class="all-done-banner hidden">✓ All cards reviewed! Try Level B next.</div>
+      <button class="nav-btn next" id="btn-next" onclick="fcNav(1)">Next →</button>
+    </div>
+  </div>
+  <div class="level-content" id="level-B"><div class="quiz-wrap" id="quiz-b-wrap"></div></div>
+  <div class="level-content" id="level-C"><div class="quiz-wrap" id="quiz-c-wrap"></div></div>
+</div>
+ 
+</div><!-- /page -->
+ 
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-photo-ring"><img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACmAIEDASIAAhEBAxEB/8QAHQABAAAHAQEAAAAAAAAAAAAAAAIDBAUGBwgBCf/EAEEQAAEDAwIDBgQCBgcJAAAAAAEAAgMEBREGEgchMQgTIkFRYRRxgZEyoSNCUmKxwRUWJHKC0fAXM1ZjlKKywvH/xAAaAQACAwEBAAAAAAAAAAAAAAAAAQIEBQMG/8QAJxEAAgIBAwQCAQUAAAAAAAAAAAECAxEEEiEFMUFRE2EiMjNxkbH/2gAMAwEAAhEDEQA/AOy0REAEREAERa94zcVbJw3tzPiG/G3WoaXU1Ex2CR+04/qt/j5JpN8IDYSLhvU/HniTeat89PfW2mlJ8FPRxNAx6bnAkn6hWGu4u8RpqL4eXWN0DSMACRrT9wAfzUtn2I+gO4btuRn0yvV82I9c6kirG1p1JeGVTDkSmreSD88rfHCTtNVVPLT2vXTRVUxw0XGJuJGe72jk4e4wfYp/G/AZOr0VNa7hRXS3w3C3VUNXSztD4ponBzXA+YIVSuYwiIgAiIgAiIgAiIgAiIgC16sv1u0xp2tvt1mbFSUkRkeSebj5NHuTgD5r538QNXXLV2ra/UF0kMk9S87G7vDEwfhYPYBdO9uaa4s0NZYaedrKKStf8QzPN7gz9H9B4vyXHAiA5PkyTzwSusVhZF5J8NawZGRG7yJBwSqcVgdvDnMdI05G09FN7lk5DMOf6AdVkWmdICsqo2z0k0THH8RYcf8A1c7LY1rLO1VM7XiKMQdO985IHXqcYyPcKOZwa0Bu/HljyW5qfhbRV++RhmjiHJhx19+fkqW78JH01uqKiGsdMYmF4Zt5n2VaPUac4Lcul3JZMk7HXFOTT+pmaJu8xFqusmKZzzyp6g9B8n9Pnj3Xai+VFQ2ooa5kkb3RSxPBaQcFrgeS+lnCDU39cOGlh1E526WqpG9+f+a3wv8A+5pKvWYa3IzVlPDMrREXEkEREAEREAEREAEREAaF7blJ33DG21AHOK6xt+jmP/yXN+ieHtLfaGStqXysc120YOF1r2qbcbhwjqA1uTBWU8vy8e3/ANlrGPTBisdLaaaodSsLQ6ofGPG448j5KrrLnCCSeDQ6fTGyTbWcFh0hw6s9skbM2lErwfxvO5bDp7bTNIxG0dMjCxRukr9bQJLRqWZrW8xHM0OCySzXOrc3ubnG0ztbzewYDlh2Zk8uWT0Ff4rCjgrpoYg3DWDKtlcxnduYRyIwVSXaXUd3/stqkjt8W7xTEZfhW9ujrxSvFRUajlqZwOWRy+oSVce7kSc5ZwonP3FKxC36hqmRNPdudub9V132K3SngdTMlcSI66drPZvhOPuStOcVbA2q07JcZYx8VTNBeW9HBdBdmC2i28FLE3ZsdO2Sd3vuecH7AL0Wls3U8nmNfVsu48mzERF1KgREQAREQAREQAREQBpTjTVXKbUctulrZG2wmmHcB2Gvy5pOR58x+StOoqC4z0jxbZxBK4YD9ucK+8ebdMblT10TS4NayUgfrbHcx9ORUqjq2OawdcgHmsHWOW9p+z1OjUXXBxXj/DWY01fob5DVvutzfSCP9LB35O6THUeQBOD0WXWGCoEeKtu6QM8R91f698cUTpSAFBbo805Jb43DJCqWWOaRbrrUM/ZilZFXSu2NM7IHNe2R0Jw9rsYaR9easNg0/qenpAam6VUtZ3+4PfKXs7vH4cHzPXyws6a40twax4/RS5AJ6Z9FeAWRx5DAMqUbGobcCnWnJSMM1RSd5patiqgC50Dg77LNuz/UT00slnbVSS0DKKN9Mxzi4MwccvofyWI6ymJtFXgdY3AD1WwuBFqNLaZ6yRo37WwNI9ubh9yPsr2i3NxSfHJQ12xVTclzxj+zZaIi2TzYREQAREQAREQAREQBYtaafZqG1/DCURTMJMbyMjn1B9itM7J6Crlo6g7ZoHmN4HqOS6DWn+MFsdbL6y8Nb/ZqzAc7ybIB0+oGfus7qNKlXvS5Rr9K1DjZ8cnw+38lnqpWVFKWudjly9lZKd9zFRKX3J2XEBrNo2tHt5q2XK4VbGOfSxNnd+qwuwD9VRU1Xe6qMyv+EjHnG442rGhFyPRqLbwjIKBtW2qMNVcHVMAk7xneAbh+6MDor/PXN2bQ5a4rqi/Me2OJ1JOT6Ejb9QrnQVFQyMNrH5kHolNNCccPDL/TUUuobxS2Zjwz4mTbvxna0cycfIFb505aYLJaILdA4ubGPE8jBc49StacEbbFV3GqvTiHfDDuYh6OcOZ+3L6lbbW9oatlSb7nmOp3udrguyCIiumaEREAEREAEREAEREAFhXGmGCfQ8sczmgmZmwE4JOfL3xkqu1/r3SehrTPcNR3mlpBFGXtp+8Bnl9Axmckk8vRaF4Ra1rON+vdRX65QOorVbKRlJbKLfuEXeuJdK7yMh2Dn5DkozrdkHFeUydVirsjJ+Gi0U+6CpNLUzFuT4HnzVzitdHId9TUOcPQOU/WNjloqqSkrI+bTyOOTh5ELF3WW4OYTQ3GTZ+yTnC8o1tlh8M9tGW5Jx5TMikp6ClBMcgaBz5lWSorfjavuaUlw6Ok8h8lSR6crHu319bI9g/VB5FXyzUMbHiOCIk9GtaMklSWE89xPPk3H2fwxlhuMLTzbUjl5/hC2WuauJ1ReuGGirTrW2SOZX264NkraYuwypglw18Lh9GHPkRlbJ4O8bdE8TKZsdsrRQ3YD9LbatwbKD+75PHuPsvUU1yhVFS9HjdTZGd0nHtk2YiIpnEIiIAIiIAIufuLPan0RpR0lv003+tFzbkEwP200Z95MeL/AA5+a5Y4mcfOJevRLTVl6da7a/INFbsxMI9HO/E4fMqW0WTtziVx04baDjey536Ktrm5AoreRPNkeRwcN/xELl7ij2sdaaiElDo+lZpqidlvfZEtU8H97GGfQZ91zo1vPPmepPUqJj2xyNe4EgeieEBcLpVVtxq31tzraiuq5Dl89RIXvcfmV0T2E7oym1VfLM92DV0jJ2j1MbiP4PXNzXNlGWHcMraPZiuZtfGaxP37WTyOgf7hzSP44U49yMux3ZqTT9Ff7eaapGyQD9FMB4mH+Y9lpu86Zu2n650NTEQwnwTM/A8f68lvcyxwQvmnkbHFE0ve9xwGtAySVyTxC7UdzOsJzpa2Uc9npHPip3VO5wqPLvCARy9B6KpqOmR1byuH7L+j6lPSrHePozqgs10u1U2mpIHzSu+zfcnyC2xozRlHp2ETTFtVcCPFIR4WezR/Ncqab7TOr6fUtLc7lbrY22B4FZDTxuYXRk+IjLj4h1HywuyrPcqG82mlu1sqG1FFWRNmglb0c1wyEqOkrSNSnyyWr6rPUrbFbUaN7bFdFTcKoqEuAlrK5gA9Q0En+S4ip3SQztlikfFKw5a9ji1zfkR0XUfbsurn3uxWZp8EUT5nD3OAFzC+Pnvb0V2RmxNucNe0jxL0ZKymq7iNRW5vI09xJc8D92QeIfmPZdP8N+1Bw41V3VLdaiXTdwfgGOu5wl3o2Ucvq4NXz9kcxzhtdkjqvMAjBHJQwmSPrfRVVNW0sdVR1MNTTyDcyWJ4exw9QRyKnL5bcP8AiRrfQVU2bTGoKuki3bn0rn74JP70buRXU/Cjtc2a6SwW3X1s/oeocdvx9Ll9OT6ubzcz8/oouPoeTqJFhP8Atc4Y/wDHmn/+tZ/miWGPJ8vRgjIGF6Ao2jEj2/VMYUyJCeqihibIHEu5NPT1XnmvYCRNt8njH2SGVJAa0Boxj0V90NcXWnV1nujA4mlrYpcN6nDhyVhdybhT6F7o5WSNOHMc1wPyOVJcMT7H0wvlJDqOxPoN5+DrIgJiOW5hGdq5O7SHBan03ZqnVWnIXtipi1tXC0ZbsPSQehHn911joqrbX6VtlezG2op2SjH7wz/Nah7XmsWaf4fVtjicDW3tzKWNvmI+r3fYY+atVvEsI4v2aK7N/Dmn15qd1VdWb7NbA10kXlUTEZaw+wHMrtTTNqi09RR26kbtoW/gYOkRPkPZc3diu9UAkvOnfwVzKltVgn/eR7dnL3B6/NdTVDxHTyP/AGWkrpqZNzwKC8nB/auvcl44xXAOd+ipY2QxN/ZaBnP1zn6rUhwfAcc/JZNxNuwv3ES/XVj98c1bIIj6sBw38gsZmw0BUn3Oy7FO9gZzb+H+ChUVQRsjaDkk7ioVEZ4ohjPPogUud3h2jq44QA+Ip/2D9kUzYz0RPLDBBk940k5yMKIlS3kDYfdR55ZSAFQkkEPH6pyiiHTCQFRjLs+SnRDr7hU9O4d2AereSqoyM8uikgZ392Zbw28cGrJK5+59PEYHj9nYS0D7AfdcsdpXUEmqOM1wa15fSWsfDxDPLI5kj5n+C2P2RNYMt2h9S2qeUNNJMKiEOP7bTn82j7rQd6qHT1lbcZM97XzvmOfIOcT/ADWlpK9zcivN44K3gxqd+lOMlpuxcREKkQVAz+KOTDXA+3MH6LvLijeo7Hw7vN37wAQ0Uj43ep2nb9zhfN8xuGopQCR4uRHlyXXfaH1T3/Zbs1QZh3t6gposA8zy3H/w/NQ1EMLd9skvRyCxxeDIeRcdx+ZUuQbjtCjA2xgKRK4ta5/XyCoHYkvO6QuHQcgvV5jAAXhOBlICM8gqcHfUNHk3mvS8uK8p+b5He+EDJ+8+o+yKDI/0EQIgqOTW/wB4KJx5KTO7LPkVMJyEhnocM4UYUgnxBTGlAE2I4lI8nDP1Cq4SqBxwQ4fqnKrWkBwIPLyTQjJNJahlsMla2NxDaqAMOD5hwP8ADKkV04nGA8O2hY/XlwgLh1Cm22bdWNHUOGCtDSW4zE5Tj5L9BbzLO2uHRzR91knFHVrrxoTROnY5dzLbDUGRoPRwkLGg/RufqrHbKtjIXwvPKMErEqdzpZ5JST4nEjPzVjqDSrjFeSFSzLPoqJXeFUkziZGRny8R/kqiUjd4ug5nCoo3b3OkP6x/JZDLBG5SJncsKZKcBUsj8qIyYD4VFTHEOfU5Ul7sRH5Kaz8DR7IAm7gil4ciYFHLMS0jCq2HwD5IiihkL+qjYURMRMPTCnUZzCR5sOMoiBE6oG6md8lL08MmN/mCQiK3pf3CMv0lzuMhgp53t6uYR91baEYp0Rdte/zS+iNfYl1ztsPLOXHapLW45ZKIs99zqQS9MdVTF3IoiQzyY4iCqYjlgOERAiPKIiAP/9k=" alt="Lecturer"></div>
+    <div class="footer-info">
+      <div class="footer-name">Autobody Repair Lecturer &nbsp;·&nbsp; ITI &amp; ACEC</div>
+      <div class="footer-role">Engineer's Degree (ITC) &nbsp;·&nbsp; Honda Hakata Training, Japan 🇯🇵 &nbsp;·&nbsp; ESL Diploma (PUC)</div>
+    </div>
+    <div class="footer-copy">© 2025 Technical English–Khmer Dictionary</div>
+  </div>
+</footer>
+ 
+<script>
+const GROUPS = [{"title": "Group 1: Interior of Vehicle", "sheet": "Group 1 - Interior of Vehicle", "terms": [{"no": 1, "term": "Dashboard", "khmer": "ផ្ទាំងបញ្ជា (ដាស់ប័រ)", "definition": "The panel located in front of the driver and front passenger that houses gauges, controls, and displays for monitoring and operating the vehicle.", "use": "Used to monitor vehicle speed, fuel level, engine temperature, and warning lights; also houses controls for HVAC, audio, and other systems.", "image": "https://validmfg.com/wp-content/uploads/Tiffin-ad-dash.jpg"}, {"no": 2, "term": "Steering Wheel", "khmer": "ចង្កូតឡាន", "definition": "A circular control wheel connected to the steering column that allows the driver to control the direction of the vehicle.", "use": "Used by the driver to steer the vehicle left or right; modern steering wheels also integrate controls for horn, cruise control, and audio.", "image": "https://scpautomotive.co.uk/cdn/shop/files/BMW-G-Series-M-Sport-Steering-Wheel-Cover-SCP-Automotive-Alcantara-Red-Stripe-M-Stitching-26715848.jpg?v=1732836163&width=2048"}, {"no": 3, "term": "Seat Belt", "khmer": "ខ្សែក្រវ៉ាត់សុវត្ថិភាព", "definition": "A safety restraint system consisting of a webbing strap that secures the occupant to the seat to prevent injury during a collision or sudden stop.", "use": "Used to restrain passengers and the driver during accidents; technicians inspect, replace, and repair seat belt retractors, buckles, and webbing.", "image": "https://res.cloudinary.com/yourmechanic/image/upload/dpr_auto,f_auto,q_auto/v1/article_images/seat_belt"}, {"no": 4, "term": "Headliner", "khmer": "ពិដានខាងក្នុងរថយន្ត", "definition": "The interior overhead covering of a vehicle's roof, typically made of fabric or foam-backed material that conceals the roof structure.", "use": "Used to provide insulation, reduce noise, and improve interior aesthetics; repaired or replaced when sagging, stained, or damaged in a collision.", "image": "https://www.adhesiveapps.com/wp-content/uploads/2023/08/Headliner-Tape-Adhesive-Applications-800x600.jpg"}, {"no": 5, "term": "Door Panel", "khmer": "ក្ដារខាងក្នុងទ្វារ", "definition": "The interior trim panel attached to the inside of a vehicle door, covering the door's internal components such as window mechanisms and wiring.", "use": "Removed and replaced by technicians when repairing door internals, replacing window regulators, or refinishing after collision damage.", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Interior_door_panel.jpg/800px-Interior_door_panel.jpg"}, {"no": 6, "term": "Center Console", "khmer": "ផ្ទាំងកណ្តាល", "definition": "The raised structure between the front driver and passenger seats that typically contains storage compartments, gear shifter, and auxiliary controls.", "use": "Referenced during interior repairs when accessing wiring beneath, replacing gear shift assemblies, or repairing storage lids and armrests.", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/2016_Toyota_Camry_XSE_interior.jpg/1280px-2016_Toyota_Camry_XSE_interior.jpg"}, {"no": 7, "term": "Sun Visor", "khmer": "ស្រោបការពារពន្លឺព្រះអាទិត្យ", "definition": "A flap mounted above the windshield on the interior of a vehicle, designed to block sunlight from the driver's or passenger's eyes.", "use": "Replaced or repaired when broken, detached from its mount, or damaged during interior collision work; must be reinstalled correctly to function.", "image": "https://miracleagc.com/wp-content/uploads/2020/12/window-visor-1-1200x675.jpg"}, {"no": 8, "term": "Glove Box", "khmer": "ប្រអប់ទុកឯកសារ", "definition": "A compartment built into the dashboard on the passenger side, used to store documents, tools, or small items.", "use": "Removed during dashboard repairs or airbag replacement; inspected for damage after front-end collisions and replaced if structurally compromised.", "image": "https://media.istockphoto.com/id/1189508349/photo/driver-opening-glovebox-compartment.jpg?s=612x612&w=0&k=20&c=p4NrcZahyPADy973I-29UQ8pNsgei0DZrTlOrUQ2v6o="}, {"no": 9, "term": "Floor Mat", "khmer": "កម្រាលជើងក្នុងរថយន្ត", "definition": "A removable mat placed on the floor of the vehicle interior to protect the carpet from dirt, moisture, and wear.", "use": "Removed during interior cleaning, flood damage repair, or carpet replacement; must be secured properly to avoid interference with pedals.", "image": "https://images-cdn.ubuy.co.in/6350bed7c2417f36a03574b3-xeniks-car-mats-custom-car-floor-mat-car.jpg"}, {"no": 10, "term": "Rearview Mirror", "khmer": "កញ្ចក់មើលខាងក្រោយ", "definition": "A flat or convex mirror mounted inside the vehicle above the windshield, providing the driver a view of the road behind without turning.", "use": "Reattached or replaced when knocked off or cracked; in autobody, it is removed before windshield replacement and reinstalled afterward.", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGwHR9QAAxMS-V3o22r2-HN4KmEsp-I0eeAw&s"}]}, {"title": "Group 2: Body of Vehicle", "sheet": "Group 2 - Body of Vehicle", "terms": [{"no": 1, "term": "Hood", "khmer": "គំរបម៉ាស៊ីន", "definition": "The hinged metal cover located over the engine compartment at the front of a vehicle, providing access to the engine for inspection and repair.", "use": "Removed or replaced after front-end collisions; technicians align the hood to ensure proper fitment, gap consistency, and latch function.", "image": "https://media.infopay.net/thumbnails/CfFY5s8bK6wBMlPVCUXRWcya9jRzR0TS1B46x9AW.webp"}, {"no": 2, "term": "Fender", "khmer": "ថ្ពាល់ឡាន", "definition": "The body panel that frames and covers the wheel well of a vehicle, protecting the car and other road users from mud and debris thrown by the tires.", "use": "Replaced or repaired after side-impact collisions or parking damage; must be aligned with the hood, door, and bumper for uniform panel gaps.", "image": "https://panelhouse.com.au/cdn/shop/files/W-7772129-1_001_e13f18b2-9bc2-46c6-b237-751787d23d10.jpg?v=1760496592&width=1080"}, {"no": 3, "term": "Bumper", "khmer": "កាងរថយន្ត", "definition": "The horizontal protective bar located at the front and rear of a vehicle, designed to absorb and minimize damage during low-speed collisions.", "use": "One of the most commonly replaced body parts; technicians remove, repair, repaint, and realign bumpers after front or rear collision damage.", "image": "https://gruporevisa.net/cdn/shop/collections/bumper-delantero-auto-repuestos-revisa.jpg?v=1730837669"}, {"no": 4, "term": "Door", "khmer": "ទ្វាររថយន្ត", "definition": "A hinged or sliding panel that provides access into the vehicle's cabin and, when closed, forms part of the outer body structure.", "use": "Repaired or replaced after side-impact collisions; requires proper alignment of hinges, striker plate, and door gaps for correct closure and sealing.", "image": "https://t3.ftcdn.net/jpg/01/59/42/26/360_F_159422695_LshFmeM9uQVJO73K7klE3zQRDk4QxlC8.jpg"}, {"no": 5, "term": "Roof Panel", "khmer": "ដំបូលរថយន្ត", "definition": "The uppermost body panel of a vehicle that forms the structural top of the passenger compartment and protects occupants from the elements.", "use": "Repaired or replaced after rollover accidents or falling object damage; requires careful welding and alignment to maintain structural integrity.", "image": "https://carlikefilm.com/wp-content/uploads/2025/02/0bcf18bb-10bd-4db9-a0a6-c3496918105c.jpeg"}, {"no": 6, "term": "Trunk Lid", "khmer": "គំរបខាងក្រោយ", "definition": "The hinged lid that covers and provides access to the cargo storage area at the rear of a sedan or coupe vehicle.", "use": "Replaced or straightened after rear-end collisions; technicians adjust hinges and latch mechanisms to ensure proper closing and weathersealing.", "image": "https://www.americanmuscle.com/image/acc-polished-trunk-lid-panel-1517.397737.jpg"}, {"no": 7, "term": "Quarter Panel", "khmer": "តួរចំហៀងក្រោយ", "definition": "The body panel that covers the rear portion of the vehicle's side, from the rear door (or B-pillar) to the tail of the car, typically above the rear wheel.", "use": "Often welded to the vehicle structure; repaired using dent pulling, metal finishing, or full replacement after side or rear-corner collisions.", "image": "https://dms.mydukaan.io/original/jpeg/4907376/df19b8a6-b79e-45de-ba76-54b9da3cdee8/right-quarter-panel-paint-1599136437-0411c0aa-9712-4b92-8a95-2b330114de45.jfif"}, {"no": 8, "term": "Rocker Panel", "khmer": "ក្ដារតួខ្នងចំហៀង (ក្ដារក្រោមទ្វារ)", "definition": "The structural body panel located along the lower side of the vehicle, between the front and rear wheel arches, directly beneath the doors.", "use": "Repaired or replaced when corroded, crushed by jack misplacement, or damaged in a side-impact collision; critical for vehicle structural rigidity.", "image": "https://d2hucwwplm5rxi.cloudfront.net/wp-content/uploads/2023/08/17054340/All-About-Rocker-Panels-in-Cars-_-Body-2-17-8-23-1024x640.jpg"}, {"no": 9, "term": "Windshield", "khmer": "កញ្ចក់ខាងមុខរថយន្ត", "definition": "The large laminated safety glass panel at the front of a vehicle that protects occupants from wind, rain, and debris while providing visibility.", "use": "Replaced when cracked or shattered; in autobody, it must be bonded with urethane adhesive and allowed cure time before the vehicle is driven.", "image": "https://www.windshieldexperts.com/wp-content/uploads/2019/11/ais1.jpg"}, {"no": 10, "term": "Pillar", "khmer": "សសរខ្នងរថយន្ត", "definition": "The vertical or angled structural supports of a vehicle's body that hold the roof and define openings for doors and windows (labeled A, B, C, or D pillars).", "use": "Critical structural components inspected and repaired after rollovers or side impacts; damage to pillars affects airbag deployment and roof crush resistance.", "image": "https://static.ed.edmunds-media.com/unversioned/img/glossary/pillars.jpg"}]}, {"title": "Group 3: Auto Body Workshop", "sheet": "Group 3 - Auto Body Workshop", "terms": [{"no": 1, "term": "Spray Booth", "khmer": "បន្ទាប់បាញ់ថ្នាំ", "definition": "An enclosed, ventilated chamber designed for applying paint to vehicle body panels, equipped with filtered airflow to prevent dust contamination and control overspray.", "use": "Used to paint vehicles in a controlled environment; technicians must ensure filters are clean, temperature and airflow are correct, and booth is free of contamination before painting.", "image": "https://lh3.googleusercontent.com/proxy/kpcUd_Oyb7-2X02S2OQBY1At15mhmua8yXH8mvfgfgcShARl2lGRsNDD1rlmU3HHZJoKa6XcR1pnAjhNzF9YU2nZWLoQNlvehh1qdtWuJQ"}, {"no": 2, "term": "Frame Rack", "khmer": "កន្លែងកែតម្រូវ", "definition": "A heavy-duty steel platform with adjustable anchoring and pulling fixtures used to measure and restore a vehicle's frame or unibody structure to factory specifications after a collision.", "use": "Used in structural repair after major collisions; vehicles are anchored to the rack and hydraulic pulls are applied to straighten bent frames and restore proper dimensions.", "image": "https://prolinesystems.net/images/American-Freedom-Frame-Machine-20ft-2-Tower-Frame-Rack2-578x381.webp"}, {"no": 3, "term": "Vehicle Lift / Hoist", "khmer": "ម៉ាស៊ីនលើករថយន្ត", "definition": "A mechanical or hydraulic device installed in the workshop floor or as a portable unit, used to raise a vehicle off the ground to provide safe access to its underside.", "use": "Essential for underbody inspection, frame repair, exhaust work, and suspension service; technicians must position lifting points correctly to avoid damage.", "image": "https://www.proworkshopgear.com.au/wp-content/uploads/2025/01/OJ-3500-photos-scaled-e1714537291963-1.jpg"}, {"no": 4, "term": "Air Compressor", "khmer": "ម៉ាស៊ីនបង្ហាប់ខ្យល់", "definition": "A machine that converts power into potential energy stored in pressurized air, supplying compressed air to pneumatic tools, spray guns, and blow-off nozzles throughout the workshop.", "use": "Powers air sanders, impact wrenches, spray guns, and blow guns; technicians check tank pressure, drain moisture daily, and monitor CFM requirements for each tool.", "image": "https://www.thecompressorwarehouse.co.uk/cdn/shop/files/e050903c-60d9-492f-a71b-14db58e09fba.jpg?v=1741863620&width=1946"}, {"no": 5, "term": "Parts Washer", "khmer": "កន្លែងសម្អាតបំណែក", "definition": "A cleaning unit that uses solvent or aqueous solution and agitation to remove grease, oil, and contaminants from metal parts before inspection, painting, or reassembly.", "use": "Used to clean components such as brackets, hinges, and hardware before priming or painting; keeping parts clean ensures good paint adhesion and rust prevention.", "image": "https://portalimages.blob.core.windows.net/products/images/kfp0ovod_1.jpg"}, {"no": 6, "term": "Welding Station", "khmer": "កន្លែងផ្សា", "definition": "A designated workspace equipped with welding equipment (MIG, TIG, or spot welder), a welding table, proper ventilation, and safety barriers for joining metal panels and structural components.", "use": "Used to weld replacement panels, patch rust holes, and repair structural members; requires proper heat control to avoid warping and correct wire/gas selection for the metal type.", "image": "https://lh3.googleusercontent.com/proxy/5Zri1G441ra_ui17mY7KC2PYduc4wf_KTmp_Efh-Z2kFuUFYktJuKKgCB6Vvm9syqag4s_dKNbUBtd9rimXpbe5_It_1CZKs99S2KeM-UphyuFqciN5cNjsDeQuArF8tIuQ73g"}, {"no": 7, "term": "Drying Oven / IR Curing Lamp", "khmer": "ឡ/ចង្កៀងហ្វ្យូស", "definition": "A heating device (oven or infrared lamp) used to accelerate the drying and curing of primers, fillers, and topcoat paints applied to vehicle body panels.", "use": "Reduces flash and cure times significantly; technicians must control temperature to avoid blistering paint and ensure the substrate reaches the correct cure temperature.", "image": "https://img.vevorstatic.com/us%2FZJSKQD2200W02IO44V1%2Fgoods_img-v2%2Fpaint-dryer-m100-12.jpg?timestamp=1717125094000&format=webp&format=webp"}, {"no": 8, "term": "Workbench", "khmer": "តុធ្វើការ", "definition": "A sturdy, flat-surfaced table built from heavy steel or hardwood, used in the workshop for assembling, disassembling, repairing small components, and laying out tools.", "use": "Used to strip, repair, and reassemble door handles, hinges, mirrors, and trim pieces away from the vehicle; keeps parts organized and reduces floor clutter.", "image": "https://www.garvee.com/cdn/shop/files/71Pv2voTtDL.jpg?v=1757915178"}, {"no": 9, "term": "Exhaust Ventilation System", "khmer": "ប្រព័ន្ធដកខ្យល់", "definition": "A network of fans, ducts, and extraction hoses designed to remove vehicle exhaust fumes, paint vapors, welding gases, and grinding dust from the workshop environment.", "use": "Critical for worker health and safety; must be operational whenever vehicles run indoors, welding is performed, or paint is sprayed to meet safety regulations.", "image": "https://www.iqsdirectory.com/articles/paint-finishing-equipment/paint-spray-booths/full-downdraft-spray-booth.jpg"}, {"no": 10, "term": "Storage Cabinet / Tool Chest", "khmer": "ទូរស្តុកសម្ភារៈ", "definition": "A lockable metal cabinet or rolling chest with multiple drawers and compartments used to store, organize, and protect hand tools, measuring equipment, and consumables.", "use": "Keeps the workshop organized and ensures tools are returned to the correct location after use; critical for efficient workflow and loss prevention in professional shops.", "image": "https://www.edisons.com.au/media/catalog/product/0/0/000-tolcccbu79ra-tool-chest-cabinet-clean_1.jpg?optimize=medium&fit=bounds&height=1024&width=1024&canvas=1024:1024"}]}, {"title": "Group 4: Tools for Removal and Refit", "sheet": "Group 4 - Tools Removal & Refit", "terms": [{"no": 1, "term": "Torque Wrench", "khmer": "សោររឹតលីមីតកម្លាំង", "definition": "A precision hand tool that applies and measures a specific amount of rotational force (torque) to fasteners, ensuring bolts are tightened to manufacturer specifications.", "use": "Used when reinstalling wheels, cylinder heads, suspension components, and any fastener requiring a specific tightening value; prevents over-tightening and under-tightening.", "image": "https://m.media-amazon.com/images/I/51ssZKgF4sL._AC_UF894,1000_QL80_.jpg"}, {"no": 2, "term": "Panel Puller / Dent Puller", "khmer": "ឧបករណ៍ទាញ", "definition": "A tool system (slide hammer or stud welder-based) used to pull dented panels back to their original shape from the exterior without requiring full panel access.", "use": "Used on dents where backside access is limited; a weld-on tab or suction cup attaches to the dent and a slide hammer or pulling bridge applies outward force to raise the metal.", "image": "https://xtremepowerusa.com/cdn/shop/files/26200_3.jpg?v=1744176132&width=1214"}, {"no": 3, "term": "Trim Removal Tool", "khmer": "ឧបករណ៍ដោះបន្ទះតុបតែង", "definition": "A flat, wedge-shaped plastic or nylon tool designed to pry interior trim panels, clips, and moldings away from the vehicle body without scratching painted or plastic surfaces.", "use": "Used to safely remove door panels, dashboards, window moldings, and body trim when performing interior repairs or accessing hidden components for repair.", "image": "https://cdn.shopify.com/s/files/1/0969/5444/files/5-Pcs-Auto-Trim-Removal-Tool-Set-Blue-Nilight-47426758.jpg?v=1713766097"}, {"no": 4, "term": "Impact Wrench", "khmer": "ម៉ូទ័", "definition": "A pneumatic or electric power tool that delivers high-torque output in rapid rotational bursts, used to quickly tighten or loosen large fasteners such as wheel nuts and suspension bolts.", "use": "Speeds up removal and installation of wheels, bumper bolts, and suspension fasteners; technicians must follow up with a torque wrench on critical fasteners to ensure correct tightening.", "image": "https://res.cloudinary.com/rsc/image/upload/w_1024/R1222427-01"}, {"no": 5, "term": "Socket Set", "khmer": "ឈុតសោរ​ Socket", "definition": "A collection of interchangeable drive sockets in various metric and imperial sizes, used with a ratchet handle to tighten and loosen hex-headed bolts and nuts.", "use": "One of the most-used tool sets in autobody work; used for removing bumpers, door hinges, seat bolts, trim fasteners, and virtually all hex-headed fasteners on a vehicle.", "image": "https://image-cdn.ubuy.com/14-pieces-socket-wrench-kit-1-4-drive/400_400_100/69b195eae8669ea33f05dd09.jpg"}, {"no": 6, "term": "Pry Bar", "khmer": "ដំបងគាស់", "definition": "A steel lever tool with a flat or curved end used to apply mechanical advantage for separating panels, lifting components, and removing stubborn clips or fasteners.", "use": "Used to separate bonded panels, pry out damaged sections, remove stuck trim, and provide leverage when aligning body panels during fitting; must be used with care to avoid damage.", "image": "https://pimdatacdn.bahco.com/media/sub884/175d10a3d8e9b73f.png"}, {"no": 7, "term": "Clip / Retainer Remover", "khmer": "ឧបករណ៍ដោះឈ្នួត", "definition": "A specialized forked or hooked tool designed to release plastic push-in clips and retaining fasteners used to hold trim panels, under-trays, and body moldings in place.", "use": "Used to extract plastic clips without breaking them during panel removal; allows technicians to reuse clips and avoid the cost of buying new retainers for every disassembly.", "image": "https://m.media-amazon.com/images/I/71O8fn6WZ2L.jpg"}, {"no": 8, "term": "Screwdriver Set", "khmer": "ឈុតទួលវីស", "definition": "A set of hand tools with handles and interchangeable or fixed tips (Phillips, flathead, Torx, Pozidriv) used to drive screws in and out of vehicle components.", "use": "Used throughout disassembly and reassembly of interior panels, exterior trim, license plate brackets, mirror covers, and any screw-fastened component on the vehicle.", "image": "https://sonictoolsusa.com/wp-content/uploads/2019/06/602407__44634.1588695415.1280.1280.jpg"}, {"no": 9, "term": "Hex / Allen Key Set", "khmer": "ឈុតសោរតាន់", "definition": "An L-shaped or T-handle tool set with hexagonal cross-sections used to turn socket-head cap screws (Allen bolts) found on many modern vehicle body fittings.", "use": "Used to remove door hinge bolts, seat rail bolts, interior grab handles, and various trim and mirror fittings secured with Allen-head fasteners.", "image": "https://generaltools.com/media/catalog/product/d/s/dsc02293.jpg"}, {"no": 10, "term": "Combination Pliers", "khmer": "ដង្កាប់", "definition": "A versatile hand tool with two pivoting jaws used for gripping, bending, cutting wire, and squeezing components; available in multiple types including needle-nose, slip-joint, and locking.", "use": "Used to grip and pull stubborn clips, bend metal tabs, hold wiring connectors during installation, and manipulate small parts in confined spaces during disassembly and reassembly.", "image": "https://www.maunindustries.com/product_images/uploaded_images/traditional-combination-plier-2-.jpg"}]}, {"title": "Group 5: Circuit (Electrical Systems)", "sheet": "Group 5 - Circuit", "terms": [{"no": 1, "term": "Wiring Harness", "khmer": "ក្រុមខ្សែចរន្ត", "definition": "An organized bundle of electrical wires, connectors, and terminals encased in protective conduit that routes electrical power and signals throughout the vehicle.", "use": "Inspected and replaced when damaged in a collision or fire; technicians must route and secure harnesses correctly to prevent chafing, heat damage, and shorts.", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Wiring_harness_automotive.jpg/800px-Wiring_harness_automotive.jpg"}, {"no": 2, "term": "Fuse", "khmer": "ពុយហ្ស៊ីប", "definition": "A small overcurrent protection device containing a wire or element that melts and breaks the circuit when current exceeds a rated value, protecting electrical components from damage.", "use": "Checked first when an electrical accessory fails; technicians use a test light or multimeter to identify blown fuses and replace them with the correct amperage rating.", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Automotive_fuses.jpg/800px-Automotive_fuses.jpg"}, {"no": 3, "term": "Relay", "khmer": "រ៉ាឡេ (Relay)", "definition": "An electrically operated switch that uses a low-current signal to control a high-current circuit, allowing small switches to operate large loads such as fans, horns, and fuel pumps.", "use": "Diagnosed when high-current components like cooling fans, headlights, or fuel pumps fail intermittently; replaced by pulling from the fuse/relay box and substituting a known-good unit.", "image": "https://www.hpacademy.com/assets/Taz-Articles-and-Blogs/Relay-article/2d6d106def/3__ResizedImageWzc4MCw3ODBd.png"}, {"no": 4, "term": "Ground Wire / Earth Connection", "khmer": "ខ្សែដី", "definition": "A conductor that connects electrical components to the vehicle's metal body or chassis, completing the electrical circuit and providing a return path for current flow.", "use": "A poor ground causes many electrical faults; technicians inspect ground straps for corrosion, ensure tight connections, and add new grounds when installing aftermarket components.", "image": "https://www.endesa.com/content/dam/endesa-com/endesaclientes/blog/imagenes/AM_Toma_de_Tierra.jpg"}, {"no": 5, "term": "Battery", "khmer": "អាគុយ", "definition": "An electrochemical device that stores and delivers direct current (DC) electrical energy to start the engine and power vehicle systems when the alternator is not running.", "use": "Tested and replaced during repairs involving electrical faults or after collision damage; must be disconnected before body electrical work to prevent shorts and airbag deployment.", "image": "https://www.tatagreenbattery.com/wp-content/uploads/2024/12/25229-Industrial-Battery-4-1024x880.png"}, {"no": 6, "term": "Multimeter", "khmer": "ឧបករណ៍វាស់ចរន្តអគ្គិសនី", "definition": "A versatile electronic test instrument that measures voltage (V), current (A), resistance (Ω), and continuity in electrical circuits.", "use": "Used daily for diagnosing electrical faults; technicians use it to check battery voltage, test fuse continuity, measure sensor resistance, and find short circuits in damaged wiring.", "image": "https://www.ic-components.com/upfile/images/32/20240904095421969.jpg"}, {"no": 7, "term": "Connector / Plug", "khmer": "ឧបករណ៍ភ្ជាប់ខ្សែ", "definition": "A plastic housing with metal terminals that joins two sections of wiring harness, allowing electrical connections to be made and broken without cutting wires.", "use": "Disconnected when removing components for repair and reconnected during reassembly; damaged connector terminals must be repaired or replaced to ensure reliable electrical contact.", "image": "https://m.media-amazon.com/images/I/61gLIksGzGL._AC_SL1500_.jpg"}, {"no": 8, "term": "Control Module (ECU/BCM)", "khmer": "ម៉ូឌុលគ្រប់គ្រង", "definition": "An electronic control unit that processes sensor inputs and controls vehicle systems such as the engine, body, transmission, ABS, and airbags using programmed software.", "use": "May need replacement or reprogramming after collision damage or water ingress; technicians use a scan tool to read fault codes and verify module function after installation.", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3j8cstXomp9jSjfDbbkDWbbeCBdxOtUqlLQ&s"}, {"no": 9, "term": "Circuit Breaker", "khmer": "ប្រព័ន្ធការពារចរន្ត (Circuit Breaker)", "definition": "A resettable overcurrent protection device that automatically interrupts the electrical circuit when current exceeds its rated capacity, then resets manually or automatically.", "use": "Found protecting high-current circuits such as power window and seat motors; technicians locate tripped breakers when those accessories fail and investigate the cause of overcurrent.", "image": "https://dbve060ocfe16.cloudfront.net/ts1689629090/images/rp_640x400/Category/2805/Circuit-Breakers4.jpg"}, {"no": 10, "term": "Scan Tool / OBD-II Reader", "khmer": "ឧបករណ៍អានកូដ OBD", "definition": "An electronic diagnostic device that communicates with a vehicle's on-board computer (OBD-II system) to read and clear diagnostic trouble codes (DTCs) and view live sensor data.", "use": "Used after electrical repairs and collision work to confirm no fault codes are stored; required to reset airbag warning lights, check ABS function, and calibrate advanced driver assistance systems.", "image": "https://m.media-amazon.com/images/I/71eVULU6IOL._AC_UF1000,1000_QL80_.jpg"}]}, {"title": "Group 6: Environment", "sheet": "Group 6 - Environment", "terms": [{"no": 1, "term": "Hazardous Waste", "khmer": "សំណល់គ្រោះថ្នាក់", "definition": "Any waste material that poses a substantial threat to public health or the environment due to its chemical, biological, or physical properties, including flammability, toxicity, and reactivity.", "use": "Autobody workshops generate hazardous waste including used solvents, paint residues, contaminated rags, and waste oil; technicians must segregate, label, and store these for licensed disposal.", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Hazardous_waste_drums.jpg/800px-Hazardous_waste_drums.jpg"}, {"no": 2, "term": "VOC (Volatile Organic Compound)", "khmer": "សមាសធាតុ VOC", "definition": "Carbon-based chemicals that evaporate easily at room temperature, found in paints, solvents, and thinners, which contribute to air pollution and can cause health problems.", "use": "Autobody technicians must use low-VOC or waterborne paints where required by law; spray booths must have proper filtration to capture VOC emissions before exhausting air.", "image": "https://www.rosewoodpainting.com/wp-content/uploads/2024/02/vocs-in-paint-1024x924.jpg"}, {"no": 3, "term": "Recycling Bin", "khmer": "ធុងកែច្នៃសំណល់", "definition": "A labeled container used to separate recyclable materials such as metal, plastic, glass, and cardboard from general waste for collection and reprocessing.", "use": "Used in workshops to separate scrap metal, plastic bumper pieces, cardboard packaging, and empty non-hazardous containers; reduces landfill waste and may generate recycling revenue.", "image": "https://static.vecteezy.com/system/resources/previews/059/896/096/non_2x/recycling-bin-with-plastic-bottles-for-eco-friendly-sorting-cartoon-flat-clipart-illustration-vector.jpg"}, {"no": 4, "term": "Oil/Water Separator", "khmer": "ឧបករណ៍ញែកប្រេងចេញពីទឹក", "definition": "A device installed in workshop floor drains that separates oil and hydrocarbons from wastewater before it is discharged to the sewer system.", "use": "Required by environmental regulations in most countries; technicians must ensure floor washing water containing oil passes through the separator and the unit is cleaned regularly.", "image": "https://www.donaldson.com/content/dam/donaldson/compressed-air-and-process/imagery/compressed-air-and-gas/condensate-management-systems/oil-water-separators/ultrasep-us/Donaldson-Ultrasep-US-10-Filter-Family.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"}, {"no": 5, "term": "Waste Paint Container", "khmer": "ធុងផ្ទុកកាកសំណល់ថ្នាំ", "definition": "A sealed, labeled metal or plastic container used to collect unused paint, thinners, and paint-contaminated materials for safe storage until hazardous waste collection.", "use": "Paint waste is a regulated hazardous material; technicians must never pour leftover paint into drains and must keep it in approved containers away from ignition sources.", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT25lZqQVRT8CijLk5Swqss-lHAVVqTKwLajg&s"}, {"no": 6, "term": "Solvent Recycler", "khmer": "ម៉ាស៊ីនកែច្នៃសារធាតុ Solvent", "definition": "A distillation unit that heats contaminated solvent to separate it from paint sludge, allowing the recovered clean solvent to be reused for cleaning equipment.", "use": "Reduces solvent purchasing costs and hazardous waste disposal fees; used to reclaim gun wash solvent and other cleaning solvents contaminated with paint residue.", "image": "https://www.instrotek.com/cdn/shop/files/AC-3000-SolventRecycler_2048x2048_47932b09-fef5-4fba-bdca-1a0616026cab_2048x2048.jpg?v=1685626595"}, {"no": 7, "term": "Emission Control System", "khmer": "ប្រព័ន្ធគ្រប់គ្រងការបញ្ចេញ", "definition": "Equipment and practices used to capture, filter, and reduce the release of pollutants such as paint overspray, dust, and chemical vapors from the workshop into the atmosphere.", "use": "Includes spray booth filters, activated carbon panels, and air scrubbers; technicians must replace booth filters regularly and maintain equipment to comply with air quality standards.", "image": "https://hifi-filter.com/wp-content/uploads/2025/09/Cabine-de-Peinture-Filtration-scaled.jpg"}, {"no": 8, "term": "Contaminated Rag Bin", "khmer": "ធុងផ្ទុកក្រណាត់ប្រឡាក់", "definition": "A fire-resistant, lidded metal container specifically designed to store rags and wipers soaked in solvent, oil, or paint to prevent spontaneous combustion and chemical vapor release.", "use": "Oily and solvent-soaked rags can self-ignite; technicians must place used rags in the approved bin immediately after use and arrange for regular collection by a waste disposal service.", "image": "https://image.made-in-china.com/202f0j00iFzoVhkrbWcp/6-Gallons-Oily-Waste-Cans-for-Flammable-Liquid-Soaked-Rags-Oil-Rag-Safety-Can.webp"}, {"no": 9, "term": "Waterborne Paint System", "khmer": "ប្រព័ន្ធលាយថ្នាំព៌ណ", "definition": "A vehicle refinishing system that uses water as the primary carrier solvent instead of petroleum-based solvents, significantly reducing VOC emissions and environmental impact.", "use": "Increasingly required by regulations; technicians need specialized drying equipment (heated airflow or IR lamps) because waterborne paints cure differently from solvent-based systems.", "image": "https://elmersautobody.com/wp-content/uploads/2023/02/Waterborne-vs.-Solvent-Based-Car-Paint-Which-Is-Better.jpeg"}, {"no": 10, "term": "Environmental Compliance Poster", "khmer": "បទបញ្ជារបរិស្ថាន", "definition": "A visual display posted in the workshop that summarizes legal requirements for waste disposal, chemical handling, VOC limits, and environmental responsibilities for staff.", "use": "Reminds all workers of legal obligations; must be updated whenever regulations change and positioned where all staff can read them easily, particularly near paint mixing and chemical storage areas.", "image": "https://www.iso.co.za/wp-content/uploads/2020/05/Environmental.png"}]}, {"title": "Group 7: Safety of Working", "sheet": "Group 7 - Safety of Working", "terms": [{"no": 1, "term": "Personal Protective Equipment (PPE)", "khmer": "ឧបករណ៍ការពារផ្ទាល់ខ្លួន (PPE)", "definition": "Any clothing, equipment, or device designed to be worn or used by a worker to minimize exposure to hazards that cause serious workplace injuries and illnesses.", "use": "Required at all stages of autobody work; technicians must select the correct PPE for each task — respirator for painting, welding helmet for welding, gloves for chemical handling.", "image": "https://www.runyonsurfaceprep.com/wp-content/uploads/2018/06/the-importance-of-personal-protective-equipment-e1529414887640.jpg"}, {"no": 2, "term": "Safety Goggles", "khmer": "វ៉ែនតាការពារ", "definition": "Protective eyewear with a sealed frame that fits closely against the face to shield the eyes from flying debris, chemical splashes, sparks, and UV radiation during work.", "use": "Worn during grinding, cutting, welding, and chemical mixing; technicians must wear goggles whenever a risk of eye injury exists and ensure they are clean and undamaged before use.", "image": "https://weldingsuperstore.co.uk/media/catalog/product/cache/f3020b7489dcfc4d1d147cf4dad07b7f/p/3/p3300_copy.jpg"}, {"no": 3, "term": "Respirator Mask", "khmer": "មាស់ការពារផ្សែង", "definition": "A face-covering device fitted with replaceable filter cartridges that removes airborne contaminants such as paint vapors, isocyanates, dust, and welding fumes from inhaled air.", "use": "Mandatory when spray painting (especially with isocyanate hardeners), sanding, and grinding; the correct cartridge type must match the chemical hazard present in the work environment.", "image": "https://parcilsafety.com/cdn/shop/files/t-61-half-face-respirator-gas-mask-c-10-goggles-with-organic-vapor-and-particulate-filtrationrespiratorsparcil-safetyparcil-safetybundle-t-61-c-10-167709.jpg?v=1763614033"}, {"no": 4, "term": "Safety Gloves", "khmer": "ស្រោមដៃការពារ", "definition": "Hand protection worn to prevent cuts, chemical burns, heat burns, and skin absorption of hazardous substances such as solvents, hardeners, and body filler chemicals.", "use": "Different glove types are required for different tasks — nitrile gloves for chemical work, leather gloves for grinding, and heat-resistant gloves for welding and handling hot metal.", "image": "https://images-na.ssl-images-amazon.com/images/I/71HefDspf3L._UL500_.jpg"}, {"no": 5, "term": "Safety Boots (Steel-Toe)", "khmer": "ស្បែកជើងសុវត្ថិភាព", "definition": "Footwear reinforced with a steel or composite toe cap and puncture-resistant sole to protect feet from falling objects, rolling vehicles, and sharp debris on the workshop floor.", "use": "Mandatory in all automotive workshops; protects against vehicle parts dropped during disassembly, tools falling from workbenches, and driving over sharp metal or screws on the floor.", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsXqsVa3wjQEdIamhFTqtsLyiO8B72nRXfew&s"}, {"no": 6, "term": "Fire Extinguisher", "khmer": "ធុងពន្លត់អគ្គិភ័យ", "definition": "A portable pressurized device containing fire-suppressing agents (CO₂, dry powder, or foam) used to extinguish small fires before they spread in the workshop.", "use": "Must be positioned at designated locations throughout the workshop; technicians must know the correct type to use for each fire class — CO₂ for electrical fires, dry powder for chemical fires.", "image": "https://www.cws.com/sites/default/files/styles/photoswipe/public/2024-11/L%C3%B6schdecken%20im%20Betrieb-Alternative%20Fettbrandl%C3%B6scher-CWS%20Fire%20Safety.jpg.webp?itok=DJuFVJTs"}, {"no": 7, "term": "First Aid Kit", "khmer": "ប្រអប់ជំនួយបឋម", "definition": "A collection of medical supplies and equipment used to provide immediate treatment for minor injuries such as cuts, burns, and eye contamination before professional medical help arrives.", "use": "Must be kept fully stocked and accessible; technicians should know the kit's location and contents, and the kit must be inspected and restocked regularly according to safety regulations.", "image": "https://firstaidcoursestasmania.com.au/wp-content/uploads/2024/01/first-aid-kit-concept-medicine-equipment-set-in-a-2023-11-27-05-10-55-utc.jpg"}, {"no": 8, "term": "Welding Helmet / Shield", "khmer": "មួកផ្សា", "definition": "A head-worn protective device with an auto-darkening or fixed-shade lens that protects the face, eyes, and neck from ultraviolet/infrared radiation, sparks, and spatter during welding.", "use": "Worn every time welding or plasma cutting is performed; auto-darkening helmets allow the technician to see clearly before striking an arc and automatically darken on arc initiation.", "image": "https://www.parkson.com.tw/upload/20150709111344ZGrHSZw.gif"}, {"no": 9, "term": "Hearing Protection (Earmuffs / Earplugs)", "khmer": "ឧបករណ៍ការពារត្រចៀក", "definition": "Devices worn in or over the ears to reduce exposure to harmful noise levels produced by grinders, air tools, and other workshop machinery to prevent noise-induced hearing loss.", "use": "Required when operating angle grinders, sandblasters, and air compressors for extended periods; technicians must use hearing protection when noise levels exceed 85 dB.", "image": "https://edisastersystems.com/cdn/shop/articles/iStock-460350943.jpg?v=1722406384"}, {"no": 10, "term": "Safety Data Sheet (SDS/MSDS)", "khmer": "ឯកសារពត៌មានសុវត្ថិភាពសារធាតុ", "definition": "A standardized document provided by chemical manufacturers that details the hazards, safe handling procedures, storage requirements, first aid measures, and disposal methods for a chemical product.", "use": "Must be kept accessible for every chemical used in the workshop; technicians consult SDS documents before using unfamiliar products and in case of accidental exposure or spill.", "image": "https://m.media-amazon.com/images/I/91aKBZIRQDL._AC_UF1000,1000_QL80_.jpg"}]}, {"title": "Group 8: Building", "sheet": "Group 8 - Building", "terms": [{"no": 1, "term": "Workshop Floor", "khmer": "ជាន់រោងជាង", "definition": "The load-bearing concrete or epoxy-coated floor surface of the automotive workshop, designed to withstand the weight of vehicles, lifts, and heavy equipment.", "use": "Must be kept clean, dry, and free of oil spills to prevent slipping; floor condition affects the accuracy of vehicle alignment and frame measurement on flat-floor systems.", "image": "https://rfstulsa.s3.us-east-2.amazonaws.com/wp-content/uploads/2023/12/01045834/Epoxy-Flooring.jpg"}, {"no": 2, "term": "Drainage System", "khmer": "ប្រព័ន្ធបង្ហូរទឹក", "definition": "A network of floor drains, channels, and pipes that collects and directs wastewater and wash-down water away from the workshop floor to a treatment or separation system.", "use": "Must pass through an oil/water separator before reaching the sewer; technicians must avoid blocking drains with debris and report any drain backflows immediately.", "image": "https://cleanawater.com.au/assets/Uploads/articles/perm-wash-bay-450x370-real.jpg"}, {"no": 3, "term": "Loading Bay / Vehicle Entry", "khmer": "ច្រកចូល/ចតរថយន្ត", "definition": "The designated entry and exit area of the workshop where vehicles are driven in and out, typically fitted with a large roller shutter door and a ramped or level threshold.", "use": "Must be kept clear of obstructions; technicians must direct vehicles carefully during entry and exit, and loading bay doors must be closed during painting to prevent dust ingress.", "image": "https://translyft.com/media/2534/560x448_loading_bay.png"}, {"no": 4, "term": "Electrical Distribution Panel", "khmer": "ក្ដារចែកចាយអគ្គិសនី", "definition": "The main electrical panel (breaker box) that distributes electrical power from the supply line to individual circuits serving workshop equipment, lighting, and outlets.", "use": "Technicians must know the location of the panel to switch off power in an emergency; only qualified electricians should modify or repair wiring connected to the panel.", "image": "https://www.unicornglobalautomations.com/wp-content/uploads/2023/08/Power-Distribution-Panel-Setup.jpg"}, {"no": 5, "term": "Compressed Air Distribution Line", "khmer": "បំពង់ចែកចាយខ្យល់", "definition": "A fixed network of metal or nylon pipes installed throughout the workshop ceiling or walls that delivers compressed air from the compressor to air tool drop points.", "use": "Technicians connect air tools to drop points via quick-release couplings; lines must be purged of moisture regularly and inspected for leaks to maintain adequate pressure.", "image": "https://5.imimg.com/data5/JV/IH/KO/SELLER-4854315/compressed-air-piping-system-500x500.jpg"}, {"no": 6, "term": "Workshop Lighting", "khmer": "ប្រព័ន្ធបំភ្លឺ", "definition": "The artificial lighting system installed in the workshop consisting of fluorescent tubes or LED panels providing uniform, high-intensity illumination for inspection and repair work.", "use": "Critical for identifying paint defects, panel misalignment, and color matching; good lighting reduces eye strain and improves the quality of bodywork and paint application.", "image": "https://www.planetcarcare.com/cdn/shop/files/H8ab4124450c948af95384bd70a4bc15_1080x.jpg?v=1729162780"}, {"no": 7, "term": "Fire Sprinkler System", "khmer": "ប្រព័ន្ធស្រោចទឹក", "definition": "An automatic fire suppression system consisting of a network of pipes and heat-activated sprinkler heads that discharge water over a fire when triggered by high temperature.", "use": "Provides passive fire protection in the workshop; technicians must never obstruct sprinkler heads with equipment or stored materials, and the system must be serviced annually.", "image": "https://www.universalmincon.com/wp-content/uploads/2024/10/Fire-Sprinckler-System.png"}, {"no": 8, "term": "Emergency Exit", "khmer": "ទ្វារចេញបន្ទាន់", "definition": "A clearly marked, unobstructed doorway or route providing rapid egress from the building in the event of fire, chemical spill, explosion, or other emergency.", "use": "Must remain unlocked and unobstructed at all times during working hours; technicians must know the location of all emergency exits and practice evacuation routes during drills.", "image": "https://www.vkf-renzel.co.uk/out/pictures/generated/product/1/624_624_75/r1204391-01/emergency-exit-sign-right-with-directional-arrow-10794-1.jpg"}, {"no": 9, "term": "Storage Rack / Shelving", "khmer": "ធ្នើរ", "definition": "A structured metal framework of shelves used to store parts, paint cans, chemicals, and supplies in an organized and accessible manner within the workshop.", "use": "Heavy items must be stored at lower levels; racks must be secured to walls, not overloaded, and chemical storage must comply with flammable goods separation requirements.", "image": "https://steelfurniturewarehouse.co.za/cdn/shop/files/1_effd2b73-a4c3-477d-8ef9-f2008368466c.jpg?v=1741703555"}, {"no": 10, "term": "Paint Mixing Room", "khmer": "បន្ទប់លាយថ្នាំ", "definition": "A dedicated, ventilated room or enclosed area within the workshop fitted with a spectrophotometer, mixing scales, and paint mixing system for formulating custom color matches.", "use": "Keeps flammable paint materials segregated from other workshop areas; technicians mix base coats, tinters, and hardeners here using a computerized mixing system to achieve precise color match.", "image": "https://valeroservice.com/wp-content/uploads/2019/01/Paint-Mix-Room-Table-750x575.jpg"}]}, {"title": "Group 9: Signs of Emergency", "sheet": "Group 9 - Signs of Emergency", "terms": [{"no": 1, "term": "Fire Exit Sign", "khmer": "សញ្ញាចេញពេលមានភ្លើងឆេះ", "definition": "A green and white illuminated or photoluminescent sign displaying the word 'EXIT' or a running figure symbol, indicating the location of an emergency exit route.", "use": "Positioned above all emergency exit doors and along evacuation routes; must be lit or glow-in-the-dark so they remain visible during a power failure or smoke-filled conditions.", "image": "https://www.shutterstock.com/image-vector/fire-exit-sign-running-human-260nw-1928834186.jpg"}, {"no": 2, "term": "First Aid Sign", "khmer": "សញ្ញាជំនួយដំបូង", "definition": "A green square sign with a white cross symbol indicating the location of a first aid kit, first aid room, or trained first aid responder.", "use": "Posted directly above or adjacent to first aid kits and eye wash stations; helps injured workers or bystanders quickly locate medical assistance in a large workshop.", "image": "https://www.mysafetysign.com/img/lg/S/first-aid-center-sign-s-1783.png"}, {"no": 3, "term": "No Smoking Sign", "khmer": "សញ្ញាហាមជក់បារី", "definition": "A red-bordered circular sign displaying a crossed-out cigarette symbol, prohibiting smoking in areas where flammable chemicals, fuels, or compressed gases are present.", "use": "Mandatory in paint storage areas, spray booths, and chemical storage rooms; violations of this prohibition can lead to explosion or fire in environments with flammable vapors.", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/No_smoking_symbol.svg/960px-No_smoking_symbol.svg.png"}, {"no": 4, "term": "Flammable / Fire Hazard Sign", "khmer": "សញ្ញាគ្រោះថ្នាក់លើសាធាតុងាយឆេះ", "definition": "An orange or red diamond-shaped sign with a flame symbol warning that the area contains materials that can easily ignite or explode when exposed to heat, sparks, or flame.", "use": "Displayed on solvent storage cabinets, paint mixing rooms, and fuel storage areas; warns technicians to eliminate ignition sources and use appropriate PPE before entering.", "image": "https://ehs.princeton.edu/sites/g/files/toruqf5671/files/styles/freeform_750w/public/media_files/Flame.jpg?itok=mHB6kh3z"}, {"no": 5, "term": "Electrical Hazard Sign", "khmer": "សញ្ញាគ្រោះថ្នាក់អគ្គិសនី", "definition": "A yellow triangle sign with a lightning bolt symbol warning of exposed live electrical components, high-voltage equipment, or the risk of electric shock in the marked area.", "use": "Placed on electrical panels, welding machines, battery chargers, and any area with exposed electrical components; reminds technicians to isolate power before working near electrical parts.", "image": "https://phabcart.imgix.net/cdn/scdn/images/uploads/68018AN_WEB_600.png"}, {"no": 6, "term": "Eye Wash Station Sign", "khmer": "សញ្ញាកន្លែងលាងភ្នែក", "definition": "A green sign with an eye and water symbol indicating the location of an emergency eye wash station for immediate irrigation of eyes contaminated by chemicals or debris.", "use": "Workers must be able to reach the eye wash station within 10 seconds of exposure; the sign guides them quickly after contact with paint, solvent, or caustic chemicals.", "image": "https://misterminit.co/cdn/shop/products/MG_10521-1.jpg?v=1647337213"}, {"no": 7, "term": "Toxic / Poison Sign", "khmer": "សញ្ញាពុល", "definition": "A skull-and-crossbones symbol on a black or white background warning that the substance or area contains materials that are toxic, lethal, or seriously harmful if inhaled, ingested, or absorbed.", "use": "Found on containers of isocyanate hardeners, certain strippers, and catalysts used in autobody; workers must wear full PPE and ensure adequate ventilation when handling marked products.", "image": "https://www.mysafetysign.com/img/lg/I/iso-toxic-poison-warning-symbol-is-2041.png"}, {"no": 8, "term": "Mandatory PPE Sign", "khmer": "សញ្ញាបង្គាប់ ការពារ PPE", "definition": "A blue circular sign with a white pictogram indicating that specific personal protective equipment (such as safety glasses, gloves, or a respirator) must be worn in the designated area.", "use": "Posted at the entrance to spray booths, grinding areas, and welding stations; reminds and legally requires technicians to use the specified PPE before entering the work zone.", "image": "https://southerncrossgroup.com.au/wp-content/uploads/2021/06/SX05-0001-scaled-1.jpg"}, {"no": 9, "term": "Emergency Assembly Point", "khmer": "ចំណុចប្រជុំបន្ទាន់", "definition": "A designated outdoor location, marked by a green sign with an arrow and people symbol, where all personnel must gather after evacuating the workshop during an emergency.", "use": "Technicians must know the assembly point location so that managers can account for all staff after an evacuation; the point must be far enough from the building to be safe from fire or explosion.", "image": "https://d37iyw84027v1q.cloudfront.net/na/bradyid/BradyID_Large/y3610697.jpg"}, {"no": 10, "term": "Caution / Wet Floor Sign", "khmer": "សញ្ញាប្រុងប្រយ័ត្នរអិល", "definition": "A portable yellow A-frame sign warning pedestrians and workers of a slippery wet floor caused by spills, cleaning, or rainwater, to prevent slip-and-fall accidents.", "use": "Placed immediately whenever oil, water, or solvent is spilled on the workshop floor; must remain in place until the floor is completely dry and safe to walk on without slip risk.", "image": "https://assets.rcp.structpim.com/5642.jpg?cropmode=pad&imagecropmode=pad&width=657&height=657&quality=75&bgcolor=white&format=webp"}]}, {"title": "Group 10: Parts of Engine", "sheet": "Group 10 - Parts of Engine", "terms": [{"no": 1, "term": "Cylinder Block", "khmer": "ប្លុកស៊ីឡាំង", "definition": "The main structural casting of an engine that contains the cylinder bores, coolant passages, oil galleries, and mounting points for other engine components.", "use": "The foundation of the engine; technicians identify cracks, bore wear, and core plug leaks during engine strip-down after overheating damage or high-mileage failure.", "image": "https://s19528.pcdn.co/wp-content/uploads/2020/12/Engine-Blocks.jpg"}, {"no": 2, "term": "Cylinder Head", "khmer": "ក្បាលស៊ីឡាំង", "definition": "The machined metal casting bolted to the top of the cylinder block that seals the combustion chambers and houses the valves, camshaft(s), and spark plug threads.", "use": "Removed for valve grinding, gasket replacement, and crack repair; must be resurfaced if warped by overheating and torqued to specification on installation with a new head gasket.", "image": "https://s19529.pcdn.co/wp-content/uploads/2025/01/cylinder-head-feature.jpg"}, {"no": 3, "term": "Piston", "khmer": "ពីស្តុង", "definition": "A cylindrical component that moves up and down inside the cylinder bore, compressing the air-fuel mixture and transferring combustion energy to the crankshaft via the connecting rod.", "use": "Inspected for scoring, ring groove wear, and crown damage during engine overhaul; replaced with new piston rings to restore compression and reduce oil consumption.", "image": "https://thumbs.dreamstime.com/b/car-piston-vector-illustration-isolated-white-background-31470191.jpg"}, {"no": 4, "term": "Crankshaft", "khmer": "អ័ក្សបង្វិល (Crankshaft)", "definition": "A rotating shaft with offset journals that converts the reciprocating (up-and-down) motion of the pistons into rotational torque delivered to the transmission.", "use": "Measured for journal wear and checked for cracks during engine rebuild; must be reground and fitted with correct-size bearings, or replaced if beyond serviceable limits.", "image": "https://mountuneusa.com/cdn/shop/products/9-F1600-3.jpg?v=1675195974&width=1445"}, {"no": 5, "term": "Camshaft", "khmer": "ខេមហ្សាប", "definition": "A rotating shaft with lobes that open and close the intake and exhaust valves in sequence with the piston movement, controlling the engine's breathing cycle.", "use": "Inspected for lobe wear and bearing journal condition during top-end overhaul; cam timing must be set precisely using timing marks or a dial gauge to ensure correct valve events.", "image": "https://mountuneusa.com/cdn/shop/products/DURBP320-2.jpg?v=1675195864"}, {"no": 6, "term": "Connecting Rod", "khmer": "ដែកភ្ជាប់ (Connecting Rod)", "definition": "The rigid link between the piston pin (gudgeon pin) and the crankshaft journal that transmits the force of combustion from the piston to the crankshaft.", "use": "Checked for bend, twist, and big-end bearing clearance during overhaul; a damaged connecting rod can punch through the cylinder block — a catastrophic 'rod through block' failure.", "image": "https://cloudfront-us-east-1.images.arcpublishing.com/octane/VU3SVFXJVJHBVGAREIK46VT5MU.jpg"}, {"no": 7, "term": "Timing Belt / Chain", "khmer": "ខ្សែពាន", "definition": "A reinforced rubber belt or metal chain that synchronizes the rotation of the crankshaft and camshaft(s), ensuring valves open and close at the correct time relative to piston position.", "use": "Replaced at manufacturer-specified intervals; a broken timing belt causes catastrophic valve-to-piston contact on interference engines — technicians must follow torque and timing procedures exactly.", "image": "https://imgcdnblog.carmudi.com.ph/carmudi-ph/wp-content/uploads/2018/10/16154135/120.jpg"}, {"no": 8, "term": "Oil Pan (Sump)", "khmer": "ធុងប្រេង (Oil Pan)", "definition": "The metal reservoir bolted to the bottom of the cylinder block that stores engine oil and allows it to be drawn up by the oil pump for circulation through the engine.", "use": "Removed to access the crankshaft and bearings during engine rebuild; inspected for cracks, drain plug thread damage, and baffling condition; replaced if dented from road debris impact.", "image": "https://www.roughtrax4x4.com/media/catalog/product/cache/2e40214fa5f73db0de2e012bf5578c08/s/u/sump008_oe-01.jpg"}, {"no": 9, "term": "Fuel Injector", "khmer": "ប៊ិចសាំង (Fuel Injector)", "definition": "An electronically controlled nozzle that delivers a precise metered spray of fuel into the intake port or directly into the combustion chamber at the correct time and pressure.", "use": "Removed for cleaning or replacement when fuel delivery symptoms appear (rough idle, misfire, poor economy); flow-tested on a bench before reinstallation to verify correct spray pattern.", "image": "https://cdn11.bigcommerce.com/s-blfvvdhqqt/images/stencil/1280x1280/products/2053/2233/Industrial_Injection_II901-R2_75_Fuel_Injector__99888.1651504292.jpg?c=2"}, {"no": 10, "term": "Valve (Intake / Exhaust)", "khmer": "វ៉ាល (Intake / Exhaust)", "definition": "A poppet valve opened and closed by the camshaft that controls the flow of air-fuel mixture into the cylinder (intake valve) and the exit of burned exhaust gases (exhaust valve).", "use": "Inspected during cylinder head overhaul for burning, recession, and stem wear; ground and lapped to their seats to ensure a gas-tight seal; replaced if damaged beyond refacing limits.", "image": "https://image.made-in-china.com/365f3j00oqhawWvCZTuM/High-Performance-Truck-Engine-Components-Intake-Valve-Exhaust-Valve.webp"}]}, {"title": "Group 11: Cooling System", "sheet": "Group 11 - Cooling System", "terms": [{"no": 1, "term": "Radiator", "khmer": "រេឌីអេតទ័រ", "definition": "A flat panel at the front of the car made of many small tubes and fins. Hot coolant flows through it and air passing through the fins carries the heat away to cool it down.", "use": "Students inspect the radiator for leaks, bent fins, and corrosion. A blocked or damaged radiator causes the engine to overheat. Fins can be carefully straightened with a flat tool.", "image": "https://s19528.pcdn.co/wp-content/uploads/2019/08/Radiator.jpg"}, {"no": 2, "term": "Coolant (Antifreeze)", "khmer": "ទឹក Coolant", "definition": "A colored liquid (usually green or blue) mixed with water that flows around the engine to absorb heat and stop the engine from getting too hot.", "use": "Students check the coolant level in the plastic tank when the engine is cold. They also test the coolant strength with a hydrometer or test strip to check if it gives enough freeze protection.", "image": "https://www.engineice.com/cdn/shop/files/10850-1.jpg?v=1709318245"}, {"no": 3, "term": "Thermostat", "khmer": "វ៉ាល់ Thermostat", "definition": "A small valve in the cooling system that stays closed when the engine is cold and opens when the engine reaches its normal temperature to let coolant flow to the radiator.", "use": "Students test a thermostat by placing it in a pan of hot water. If it does not open, it is faulty and must be replaced. A stuck-closed thermostat causes the engine to overheat quickly.", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgv-IWNBaZPaz2IjblFM4wYAsJSdoYjsp8vw&s"}, {"no": 4, "term": "Water Pump", "khmer": "ក្បាលបូមទឹក", "definition": "A pump driven by the engine belt that pushes coolant around the engine and through the radiator to keep the temperature even and prevent overheating.", "use": "Students check for coolant leaking from the water pump weep hole and listen for a rumbling noise from the pump bearing. A leaking or noisy water pump must be replaced.", "image": "https://3.imimg.com/data3/TT/TT/MY-2030558/car-radiator-water-cooling-pump.jpg"}, {"no": 5, "term": "Radiator Fan", "khmer": "កង្ហាល់ Radiator", "definition": "A fan that blows air through the radiator to help cool the coolant, especially when the car is stopped or moving slowly and there is not enough airflow through the radiator.", "use": "Students check that the fan starts working when the engine gets warm. An electric fan that does not spin can be tested with a 12-volt power source. A belt-driven fan is checked for damage to the blades.", "image": "https://www.verus-engineering.com/web/image/7903/2915.png?access_token=30451818-cc90-451f-9a64-b19e8c3fe79c"}, {"no": 6, "term": "Expansion Tank", "khmer": "ធុង Expansion Tank", "definition": "A small plastic container connected to the radiator that holds extra coolant. As coolant heats up and expands, it flows into this tank and returns when the engine cools.", "use": "Students check the coolant level in the expansion tank between the MIN and MAX marks. They also check the tank for cracks and check that the cap seals properly to hold pressure.", "image": "https://au.haynes.com/cdn/shop/articles/Expansion_tank_shutterstock_1423371374.jpg?v=1723731961&width=1158"}, {"no": 7, "term": "Coolant Hose", "khmer": "បំពង់ Coolant", "definition": "A flexible rubber tube that carries coolant between the engine, radiator, and heater. There are usually a top hose and a bottom hose connecting the engine to the radiator.", "use": "Students squeeze hoses when cold to check if they are soft and flexible or hard and cracked. A cracked or swollen hose will leak and must be replaced before the engine overheats.", "image": "https://hbkinglinrubber.com/wp-content/uploads/2024/12/%E6%9C%AA%E6%A0%87%E9%A2%98-2.jpg"}, {"no": 8, "term": "Head Gasket", "khmer": "បន្ទះក្បាល Gasket", "definition": "A flat seal placed between the engine block and cylinder head that keeps coolant, oil, and combustion gases in their own separate passages and prevents them from mixing.", "use": "Students learn the signs of a blown head gasket — white smoke from the exhaust, oil that looks milky, or coolant bubbling in the expansion tank. A blown gasket is a serious repair.", "image": "https://images.ctfassets.net/i874q3cs1cvx/107454/15ca1c812e8cc5d7ed4513a7fd731fbf/head-gasket.jpg"}, {"no": 9, "term": "Intercooler", "khmer": "Intercooler", "definition": "A heat exchanger used on turbocharged engines that cools the hot compressed air from the turbo before it enters the engine, making the engine more powerful.", "use": "Students check the intercooler for oil inside (a sign of a turbo seal leak) and for cracks in the fins from stone damage. A leaking intercooler reduces power and must be replaced.", "image": "https://rtmgperformance.com/cdn/shop/products/rtmg-universal-aluminum-front-mount-intercooler-746241.jpg?v=1704716946&width=1946"}, {"no": 10, "term": "Temperature Sensor", "khmer": "ឧបករណ៍កំណត់សីតុណ្ហភាព", "definition": "A small electronic sensor that measures how hot the engine coolant is and sends this information to the instrument panel so the driver can see the engine temperature.", "use": "Students use a multimeter to test the sensor resistance at different temperatures. A faulty sensor gives a wrong reading on the dashboard gauge and can prevent the cooling fan from switching on.", "image": "https://www.masterparts.com/wp-content/uploads/2020/07/water_temp_sensors.jpg"}]}, {"title": "Group 12: Painting", "sheet": "Group 12 - Steering System", "terms": [{"no": 1, "term": "Vent hole", "khmer": "រន្ធខ្យល់", "definition": "", "use": "", "image": ""}, {"no": 2, "term": "Paint cup", "khmer": "កំប៉ុងថ្នាំ", "definition": "A container (often plastic or aluminum) that attaches directly to a spray gun. They can be gravity-fed (mounted on top) or siphon-fed (mounted on the bottom).", "use": "It holds the liquid paint, primer, or clear coat while the user operates the spray gun.", "image": "https://img.mirka.com/medias/medias/Paint-Cup-System-180-850ml-Filter-Lid-125um-with-stopper.jpg?context=bWFzdGVyfGltYWdlc3wzOTUxODh8aW1hZ2UvanBlZ3xhRGN6TDJnMk1DODRPRGd6TlRnMU1qZzJNVGMwTDFCaGFXNTBJRU4xY0NCVGVYTjBaVzFmTVRnd0xUZzFNRzFzWDBacGJIUmxjaUJNYVdRZ01USTFkVzFmZDJsMGFGOXpkRzl3Y0dWeUxtcHdad3wwOGI4ZDcyODIzNDk3NDA0M2ZiNjdlYmQxMDlkYjM5ODJlMzgwZjJhYTQwYTM2MTNjOTE1MTE4MjliMTAyMTcy"}, {"no": 3, "term": "Metallic", "khmer": "មេតាលីក", "definition": "A type of paint finish that contains tiny metal flakes, usually finely ground aluminum.", "use": "Used to give a vehicle's finish a sparkling, reflective appearance that highlights the bodylines and curves under a light source.", "image": "https://www.ohwpaint.com/cdn/shop/products/hydrographic-paint-metallic-silver-one-hit-wonder_244a307c-d842-4928-a0c3-b4484546a85a_2048x.jpg?v=1557350820"}, {"no": 4, "term": "Pearl", "khmer": "គុជខ្យល់", "definition": "A type of paint finish or additive containing mica or synthetic pearlescent pigments rather than metal flakes.", "use": "Used to create a deep, iridescent glow that often shifts in color slightly depending on the viewing angle and how the light hits it.", "image": "https://www.custompaints.bike/wp-content/uploads/2019/11/20190905_130026-e1574776798733.jpg"}, {"no": 5, "term": "knob", "khmer": "ប្រដាប់កាច់មួល", "definition": "A rounded dial or control mechanism turned by hand.", "use": "On a spray gun, various knobs are used by the painter to fine-tune the tool. They adjust the fluid control (how much paint is released), the fan pattern (the width and shape of the spray), and the air pressure.", "image": "https://m.media-amazon.com/images/I/61qY+tlOdNL._AC_UF894,1000_QL80_.jpg"}, {"no": 6, "term": "Visor", "khmer": "របាំងការពារ", "definition": "The clear, transparent shield on the front of a protective helmet or mask.", "use": "It protects the painter's eyes and face from hazardous paint overspray, airborne chemicals, and debris while allowing them to see their work clearly. Visors often have tear-off clear sheets attached to keep them clean.", "image": "https://wavecel.com/wp-content/uploads/Image-1-11.png"}, {"no": 7, "term": "Versaflo Helmet", "khmer": "មួកសុវត្ថិភាព", "definition": "A specific brand (made by 3M) of high-end respiratory protection equipment, often part of a Powered Air Purifying Respirator (PAPR) or supplied-air system.", "use": "Worn by the painter to provide a continuous, positive flow of clean, breathable air, protecting them from inhaling highly toxic paint fumes (like isocyanates) while providing full head and face protection.", "image": "https://shop.freeworker.de/media/catalog/product/V/F/VFM_306_versaflo_schutzhelm_306_f83a.jpg"}, {"no": 8, "term": "Air Dryer Gun", "khmer": "ម៉ាស៊ីនសម្ងួតដោយប្រើខ្យល់", "definition": "A specialized handheld nozzle attached to a compressed air line designed to multiply air volume and blow a wide, flat stream of air.", "use": "Used primarily when spraying waterborne paints. The painter sweeps the dryer gun over the wet surface to dramatically speed up the evaporation of the water and shorten the \"flash\" (drying) time between coats.", "image": "https://www.spraygunsdirect.co.uk/wp-content/uploads/1970/01/ani-dry-tech-air-drying-gun-ah135756.jpg"}, {"no": 9, "term": "Paint Mixing Scale", "khmer": "ជញ្ជីងលាយថ្នាំ", "definition": "A highly precise digital scale designed for the mixing room.", "use": "Used to mix paint ingredients (base color tints, binders, clear coats, hardeners, and reducers) by weight rather than by volume. This ensures exact color matching to factory codes and proper chemical curing of the paint.", "image": "https://cpimg.tistatic.com/7422993/b/5/automotive-paint-mixing-scale.jpg"}, {"no": 10, "term": "abrasiveness", "khmer": "ភាពរលោង", "definition": "The quality of being rough, coarse, and capable of scratching, wearing away, or polishing a surface.", "use": "In auto bodywork, this refers to the \"grit\" of sandpaper, scuff pads, or liquid polishing compounds. High abrasiveness is used to strip old paint or shape body filler, while very low abrasiveness is used to scuff panels for paint adhesion or polish a clear coat to a mirror finish.", "image": "https://m.media-amazon.com/images/S/aplus-media/sc/e3cf5095-0f9e-401f-90b4-28057f9384f4.__CR0,0,1600,1600_PT0_SX300_V1___.jpg"}]}, {"title": "Group 13: Painting & Refinishing", "sheet": "Group 13 - Painting & Refinishi", "terms": [{"no": 1, "term": "Primer", "khmer": "ថ្នាំទ្រនាប់", "definition": "The first coat of paint applied to bare metal or body filler. It sticks well to the surface and gives a good base for the topcoat to grip onto, and it also prevents rust.", "use": "Students apply primer after sanding and cleaning the repair area. They learn to mix primer with hardener and spray it in thin even coats, then sand it smooth before applying color.", "image": "https://www.autofactorswaterford.ie/wp-content/uploads/2022/02/aerosol-primer-ireland-e1644528464518.jpg"}, {"no": 2, "term": "Basecoat", "khmer": "ថ្នាំពណ៌ Basecoat", "definition": "The color coat of paint applied over the primer that gives the vehicle its color. Modern cars use a basecoat that must have a clear protective coat applied on top of it.", "use": "Students learn to spray the basecoat in thin passes, allowing flash time between coats. Getting the color to match the original (using the paint code on the door jamb) is a key skill.", "image": "https://tcpglobal.com/cdn/shop/files/RSPUB1901-GL_v7_700x700.jpg?v=1774395206"}, {"no": 3, "term": "Clearcoat", "khmer": "ថ្នាំ Clearcoat", "definition": "A transparent paint layer sprayed over the basecoat that protects the color from UV rays, scratches, and weather while giving the car its shiny gloss finish.", "use": "Students apply clearcoat in two or three wet coats. They learn to avoid runs and drips. After curing, clearcoat can be polished to remove any dust nibs and achieve a mirror-like finish.", "image": "https://eaglenationalsupply.com/cdn/shop/articles/a-guide-to-protecting-your-cars-clear-coat-383595.jpg?v=1723663282"}, {"no": 4, "term": "Hardener", "khmer": "ថ្នាំពង្រឹង", "definition": "A chemical catalyst mixed into two-pack paints, primers, and fillers that causes them to cure hard and durable. Without hardener, these materials stay soft or do not dry properly.", "use": "Students learn to measure hardener accurately using a mixing cup. The wrong ratio causes paint to stay soft, have poor adhesion, or crack. Hardener is a health hazard and requires a respirator.", "image": "https://info.rmpaint.com/system/files/styles/natural_limited/private/images/R-M_1L_HARDENER-H-9000_54632176.png?itok=alND0Sxv"}, {"no": 5, "term": "Thinner / Reducer", "khmer": "សាំងលាយថ្នាំ", "definition": "A liquid added to paint to make it thinner so it flows and sprays correctly through the spray gun. Using the wrong amount causes runs (too much) or orange peel (too little).", "use": "Students learn to select the correct speed of thinner for the temperature — slow thinner in hot weather, fast thinner in cold weather. They practice mixing paint to the correct viscosity with a flow cup.", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUym_OLbWoebo9I_CX3Le1UekcDhOLsuBt8Q&s"}, {"no": 6, "term": "Color Match", "khmer": "ការប្រៀបធៀបពណ៌", "definition": "The process of finding and mixing a paint formula that looks exactly the same as the original factory color on the vehicle, so the repaired area blends in perfectly.", "use": "Students find the vehicle's paint code (usually on a sticker in the door jamb or engine bay), look it up in the paint mixing system, and spray a test panel to check the match before painting the car.", "image": "https://s19525.pcdn.co/wp-content/uploads/2015/04/color-match.jpg"}, {"no": 7, "term": "Spray Gun", "khmer": "ឧបករណ៍បាញ់ថ្នាំថ្នាំ", "definition": "A tool that uses compressed air to atomize liquid paint into a fine mist and spray it evenly onto a surface to create a smooth, thin, and even coat of paint.", "use": "Students learn to set the correct air pressure, fan width, and fluid flow on the spray gun. They practice spraying on a test board before painting a vehicle panel to avoid runs and uneven coverage.", "image": "https://autowest.com.au/wp-content/uploads/2023/04/sata-100-brp.png"}, {"no": 8, "term": "Masking Tape", "khmer": "ស្កុតបិត", "definition": "A thin, easy-to-tear adhesive tape used to cover and protect areas of the car that should not be painted, such as glass, trim, and adjacent panels.", "use": "Students practice applying masking tape in a straight line with no gaps. Good masking prevents overspray on unpainted areas and gives clean, sharp edges on the painted section.", "image": "https://multimedia.3m.com/mws/media/913169J/J.jpg?width=506"}, {"no": 9, "term": "Sandpaper Grit", "khmer": "ក្រដាសខាតគ្រើម", "definition": "Sandpaper is graded by its grit number — a low number (like 80) is very rough for removing material quickly, and a high number (like 2000) is very fine for smoothing and polishing.", "use": "Students use coarse grit (80–180) to shape body filler and feather edges, medium grit (320–400) to sand primer, and fine grit (800–2000) to prepare for paint and polish clearcoat after painting.", "image": "https://cdn11.bigcommerce.com/s-xy7gvtduwh/images/stencil/1280x1280/products/184/495/Sand-Paper-230x280mm__42230.1754561415.jpg?c=1"}, {"no": 10, "term": "Polish / Compound", "khmer": "ថ្នាំប៉ូលា", "definition": "Cutting compound is an abrasive cream that removes very fine scratches and imperfections from painted surfaces. Polish is a finer product that brings out shine and smoothness after compounding.", "use": "Students use a polishing machine with a foam pad to apply compound to remove sanding scratches from fresh clearcoat. They then switch to polish to restore gloss. This is the final step after painting.", "image": "https://www.rupes.com/wp-content/uploads/2021/02/Mille-Black-Edition-Polishing-compound-750x500.jpg"}]}];
+ 
+const P = JSON.parse(localStorage.getItem('tek2_progress')||'{}');
+function saveP(g,lv){if(!P[g])P[g]={};P[g][lv]=true;localStorage.setItem('tek2_progress',JSON.stringify(P));updateProgress();}
+function isDone(g,lv){return !!(P[g]&&P[g][lv]);}
+function updateProgress(){
+  let done=0;
+  GROUPS.forEach((_,i)=>{['A','B','C'].forEach(lv=>{if(isDone(i,lv))done++;});});
+  const total=GROUPS.length*3, pct=Math.round(done/total*100);
+  const bar=document.getElementById('op-bar'),txt=document.getElementById('op-text'),hdr=document.getElementById('hdr-progress');
+  if(bar)bar.style.width=pct+'%';
+  if(txt)txt.textContent=done+' / '+total+' completed';
+  if(hdr)hdr.textContent=pct+'% complete';
+}
+ 
+function buildHome(){
+  document.getElementById('groups-grid').innerHTML=GROUPS.map((g,i)=>{
+    const dA=isDone(i,'A'),dB=isDone(i,'B'),dC=isDone(i,'C'),all=dA&&dB&&dC;
+    const name=g.title.replace(/^Group \d+:\s*/,'');
+    return `<div class="group-card ${all?'completed':''}" onclick="openGroup(${i})">
+      <div class="group-num">Group ${i+1}</div>
+      <div class="group-name">${name}</div>
+      <div class="group-footer">
+        <span class="term-count">${g.terms.length} terms</span>
+        <div class="level-dots">
+          <div class="level-dot ${dA?'done-A':''}" title="Level A">A</div>
+          <div class="level-dot ${dB?'done-B':''}" title="Level B">B</div>
+          <div class="level-dot ${dC?'done-C':''}" title="Level C">C</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  updateProgress();
+}
+ 
+function showHome(){
+  document.getElementById('home-page').classList.remove('hidden');
+  document.getElementById('group-page').classList.add('hidden');
+  buildHome();window.scrollTo(0,0);
+}
+ 
+let currentGroup=0,currentLevel='A';
+function openGroup(idx){
+  currentGroup=idx;
+  const g=GROUPS[idx];
+  document.getElementById('home-page').classList.add('hidden');
+  document.getElementById('group-page').classList.remove('hidden');
+  document.getElementById('gp-title').textContent=g.title;
+  document.getElementById('gp-sub').textContent=g.terms.length+' technical terms · 3 study levels';
+  setLevel('A');window.scrollTo(0,0);
+}
+ 
+function setLevel(lv){
+  currentLevel=lv;
+  ['A','B','C'].forEach(l=>{
+    document.getElementById('tab-'+l).className='level-tab'+(l===lv?' active-'+l:'');
+    document.getElementById('level-'+l).className='level-content'+(l===lv?' active':'');
+    const dp=document.getElementById('tab-'+l+'-done');
+    if(dp)isDone(currentGroup,l)?dp.classList.remove('hidden'):dp.classList.add('hidden');
+  });
+  if(lv==='A')initFlashcards();
+  if(lv==='B')initQuizB();
+  if(lv==='C')initQuizC();
+}
+ 
+let fcIndex=0;
+function initFlashcards(){fcIndex=0;renderFlashcard();}
+function renderFlashcard(){
+  const terms=GROUPS[currentGroup].terms,t=terms[fcIndex];
+  const pct=((fcIndex+1)/terms.length*100).toFixed(1);
+  document.getElementById('fc-bar').style.width=pct+'%';
+  document.getElementById('fc-counter').textContent=(fcIndex+1)+' / '+terms.length;
+  const imgHtml=t.image
+    ?`<img src="${t.image}" alt="${t.term}" onerror="this.parentElement.innerHTML='<span class=\'fc-img-placeholder\'>🔧</span>'">`
+    :`<span class="fc-img-placeholder">🔧</span>`;
+  document.getElementById('flashcard-box').innerHTML=`
+    <div class="fc-top">
+      <div class="fc-img-wrap">${imgHtml}</div>
+      <div class="fc-main">
+        <div class="fc-term">${t.term}</div>
+        <div class="fc-khmer khmer">${t.khmer}</div>
+        <button class="speak-btn" id="speak-btn" onclick="speak('${t.term.replace(/'/g,"\\'")}')" >🔊 Listen to pronunciation</button>
+      </div>
+    </div>
+    <div class="fc-divider"></div>
+    <div class="fc-bottom">
+      <div><div class="fc-section-label">Definition</div><div class="fc-text">${t.definition}</div></div>
+      <div><div class="fc-section-label">Use in Autobody Repair</div><div class="fc-text">${t.use}</div></div>
+    </div>`;
+  document.getElementById('btn-prev').disabled=fcIndex===0;
+  document.getElementById('btn-next').disabled=fcIndex===terms.length-1;
+  const banner=document.getElementById('fc-done-banner');
+  if(fcIndex===terms.length-1){banner.classList.remove('hidden');saveP(currentGroup,'A');updateTabDone();}
+  else banner.classList.add('hidden');
+}
+function updateTabDone(){['A','B','C'].forEach(l=>{const dp=document.getElementById('tab-'+l+'-done');if(dp)isDone(currentGroup,l)?dp.classList.remove('hidden'):dp.classList.add('hidden');});}
+function fcNav(dir){const terms=GROUPS[currentGroup].terms;fcIndex=Math.max(0,Math.min(terms.length-1,fcIndex+dir));renderFlashcard();}
+function speak(text){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=0.85;
+  const btn=document.getElementById('speak-btn');
+  if(btn){btn.classList.add('speaking');btn.textContent='🔊 Playing…';}
+  u.onend=()=>{if(btn){btn.classList.remove('speaking');btn.textContent='🔊 Listen to pronunciation';}};
+  window.speechSynthesis.speak(u);
+}
+ 
+function shuffle(arr){return[...arr].sort(()=>Math.random()-.5);}
+let bOrder=[],bCurr=0,bScore=0,bAns=false;
+function initQuizB(){const terms=GROUPS[currentGroup].terms;bOrder=shuffle(terms.map((_,i)=>i));bCurr=0;bScore=0;bAns=false;renderQuizB();}
+function renderQuizB(){
+  const terms=GROUPS[currentGroup].terms,wrap=document.getElementById('quiz-b-wrap');
+  if(bCurr>=bOrder.length){renderScoreB();return;}
+  const tIdx=bOrder[bCurr],t=terms[tIdx];
+  const others=terms.filter((_,i)=>i!==tIdx);
+  const opts=shuffle([t.khmer,...shuffle(others).slice(0,3).map(x=>x.khmer)]);
+  const imgHtml=t.image?`<img class="quiz-img" src="${t.image}" alt="${t.term}" onerror="this.style.display='none'">` :'';
+  wrap.innerHTML=`
+    <div class="quiz-q">
+      <div class="quiz-q-label lbl-B">Level B · Q${bCurr+1} of ${bOrder.length} · Score: ${bScore}</div>
+      <div class="quiz-big-term">${t.term}</div>${imgHtml}
+    </div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Choose the correct Khmer translation:</div>
+    <div class="quiz-options">
+      ${opts.map((op,i)=>`<button class="opt opt-khmer" id="ob${i}" onclick="ansB(${i},'${op.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${t.khmer.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">${op}</button>`).join('')}
+    </div>
+    <div class="quiz-feedback" id="b-fb"></div>
+    <div class="quiz-nav-row">
+      <span class="q-counter">${bCurr+1} / ${bOrder.length}</span>
+      <button class="nav-btn next" id="btn-bnext" onclick="nextB()" style="display:none">Next →</button>
+    </div>`;
+}
+function ansB(idx,chosen,correct){
+  if(bAns)return;bAns=true;
+  document.querySelectorAll('.opt-khmer').forEach(b=>b.disabled=true);
+  const fb=document.getElementById('b-fb');
+  if(chosen===correct){document.getElementById('ob'+idx).classList.add('correct');fb.innerHTML='<span class="fb-ok">✓ Correct!</span>';bScore++;}
+  else{document.getElementById('ob'+idx).classList.add('wrong');fb.innerHTML=`<span class="fb-bad">✗ Correct: <span class="khmer">${correct}</span></span>`;document.querySelectorAll('.opt-khmer').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('correct');});}
+  document.getElementById('btn-bnext').style.display='inline-flex';
+}
+function nextB(){bAns=false;bCurr++;renderQuizB();}
+function renderScoreB(){
+  const total=bOrder.length,pct=Math.round(bScore/total*100);
+  const r=52,circ=2*Math.PI*r,offset=circ-(pct/100)*circ;
+  const col=pct>=80?'var(--green)':pct>=50?'var(--yellow)':'var(--red)';
+  const msg=pct>=80?'Excellent! You know your Khmer translations! 🎉':pct>=50?'Good effort! Review and try again.':'Keep studying — you can do it!';
+  saveP(currentGroup,'B');updateTabDone();buildHome();
+  const ni=currentGroup+1<GROUPS.length?currentGroup+1:-1;
+  const nb=ni>=0?`<button class="next-group-btn" onclick="openGroup(${ni})">Next Group →</button>`:'';
+  document.getElementById('quiz-b-wrap').innerHTML=`
+    <div class="score-screen">
+      <div class="score-ring"><svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="${r}" fill="none" stroke="var(--border)" stroke-width="10"/>
+        <circle cx="65" cy="65" r="${r}" fill="none" stroke="${col}" stroke-width="10" stroke-dasharray="${circ}" stroke-dashoffset="${offset}" stroke-linecap="round"/>
+      </svg><div class="score-ring-text" style="color:${col}">${pct}%</div></div>
+      <div class="score-title">Level B Complete!</div>
+      <div class="score-msg">${bScore} / ${total} correct · ${msg}</div>
+      <div class="score-btns"><button class="retry-btn" onclick="initQuizB()">🔄 Try Again</button>${nb}</div>
+    </div>`;
+}
+ 
+let cOrder=[],cCurr=0,cScore=0,cAns=false;
+function initQuizC(){const terms=GROUPS[currentGroup].terms;cOrder=shuffle(terms.map((_,i)=>i));cCurr=0;cScore=0;cAns=false;renderQuizC();}
+function renderQuizC(){
+  const terms=GROUPS[currentGroup].terms,wrap=document.getElementById('quiz-c-wrap');
+  if(cCurr>=cOrder.length){renderScoreC();return;}
+  const tIdx=cOrder[cCurr],t=terms[tIdx];
+  const useQ=cCurr%2===0,qText=useQ?t.definition:t.use;
+  const qLabel=useQ?'What term matches this definition?':'Which term is used in this way?';
+  const others=terms.filter((_,i)=>i!==tIdx);
+  const opts=shuffle([t.term,...shuffle(others).slice(0,3).map(x=>x.term)]);
+  wrap.innerHTML=`
+    <div class="quiz-q">
+      <div class="quiz-q-label lbl-C">Level C · Q${cCurr+1} of ${cOrder.length} · Score: ${cScore}</div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">${qLabel}</div>
+      <div class="quiz-def">${qText}</div>
+    </div>
+    <div class="quiz-options">
+      ${opts.map((op,i)=>`<button class="opt opt-eng" id="oc${i}" onclick="ansC(${i},'${op.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${t.term.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">${op}</button>`).join('')}
+    </div>
+    <div class="quiz-feedback" id="c-fb"></div>
+    <div class="quiz-nav-row">
+      <span class="q-counter">${cCurr+1} / ${cOrder.length}</span>
+      <button class="nav-btn next" id="btn-cnext" onclick="nextC()" style="display:none">Next →</button>
+    </div>`;
+}
+function ansC(idx,chosen,correct){
+  if(cAns)return;cAns=true;
+  document.querySelectorAll('.opt-eng').forEach(b=>b.disabled=true);
+  const fb=document.getElementById('c-fb');
+  if(chosen===correct){document.getElementById('oc'+idx).classList.add('correct');fb.innerHTML='<span class="fb-ok">✓ Correct!</span>';cScore++;}
+  else{document.getElementById('oc'+idx).classList.add('wrong');fb.innerHTML=`<span class="fb-bad">✗ Correct: <span class="mono">${correct}</span></span>`;document.querySelectorAll('.opt-eng').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('correct');});}
+  document.getElementById('btn-cnext').style.display='inline-flex';
+}
+function nextC(){cAns=false;cCurr++;renderQuizC();}
+function renderScoreC(){
+  const total=cOrder.length,pct=Math.round(cScore/total*100);
+  const r=52,circ=2*Math.PI*r,offset=circ-(pct/100)*circ;
+  const col=pct>=80?'var(--green)':pct>=50?'var(--yellow)':'var(--red)';
+  const msg=pct>=80?'Outstanding! You mastered this group! 🏆':pct>=50?'Good progress! Review and try again.':'Keep reviewing — practice makes perfect!';
+  saveP(currentGroup,'C');updateTabDone();buildHome();
+  const ni=currentGroup+1<GROUPS.length?currentGroup+1:-1;
+  const nb=ni>=0?`<button class="next-group-btn" onclick="openGroup(${ni})">Next Group →</button>`:'';
+  document.getElementById('quiz-c-wrap').innerHTML=`
+    <div class="score-screen">
+      <div class="score-ring"><svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="${r}" fill="none" stroke="var(--border)" stroke-width="10"/>
+        <circle cx="65" cy="65" r="${r}" fill="none" stroke="${col}" stroke-width="10" stroke-dasharray="${circ}" stroke-dashoffset="${offset}" stroke-linecap="round"/>
+      </svg><div class="score-ring-text" style="color:${col}">${pct}%</div></div>
+      <div class="score-title">Level C Complete!</div>
+      <div class="score-msg">${cScore} / ${total} correct · ${msg}</div>
+      <div class="score-btns"><button class="retry-btn" onclick="initQuizC()">🔄 Try Again</button>${nb}</div>
+    </div>`;
+}
+ 
+buildHome();
+</script>
+</body>
+</htm
